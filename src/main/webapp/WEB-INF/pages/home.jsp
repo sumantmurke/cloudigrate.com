@@ -110,7 +110,7 @@
                     </p>
                 </div>
                 <div class="col-sm-3 text-right">
-                    <a class="btn btn-primary btn-lg" href="#">Sign in here !</a>
+                    <a class="btn btn-primary btn-lg" href="dashboard.jsp">Sign in here !</a>
                 </div>
             </div>
         </div>
