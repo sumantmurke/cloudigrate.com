@@ -286,7 +286,7 @@
                                     <a href="#">IAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="instance.jsp">Instance</a>
+                                            <a href="getInstance">Instance</a>
                                         </li>
                                     </ul>                                    
                                 </li>
