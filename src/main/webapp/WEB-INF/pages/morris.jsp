@@ -283,7 +283,7 @@
                                     <a href="#">IAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="instance.jsp">Instance</a>
+                                            <a href="getInstance">Instance</a>
                                         </li>
                                     </ul>                                    
                                 </li>
@@ -291,13 +291,13 @@
                                     <a href="#">PAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="sql.jsp">SQL</a>
+                                            <a href="getSql">SQL</a>
                                         </li>
                                         <li>
-                                            <a href="nosql.jsp">NoSQL</a>
+                                            <a href="getNosql">NoSQL</a>
                                         </li>
                                         <li>
-                                            <a href="storage.jsp">Storage</a>
+                                            <a href="getStorage">Storage</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
@@ -309,22 +309,22 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="getIndex"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="appstatus.jsp"><i class="fa fa-table fa-fw"></i> AppStatus</a>
+                            <a href="getAppstatus"><i class="fa fa-table fa-fw"></i> AppStatus</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Your application<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="registerapp.jsp">Register</a>
+                                    <a href="getRegisterapp">Register</a>
                                 </li>
                                 <li>
-                                    <a href="viewapp.jsp">View</a>
+                                    <a href="getViewapp">View</a>
                                 </li>
                                 <li>
-                                    <a href="editapp.jsp">Edit</a>
+                                    <a href="getEditapp">Edit</a>
                                 </li>
                             </ul>    
                         </li> 
@@ -332,10 +332,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.jsp">Flot Charts</a>
+                                    <a href="getFlotchart">Flot Charts</a>
                                 </li>
                                 <li>
-                                    <a href="morris.jsp">Morris.js Charts</a>
+                                    <a href="getMorrischart">Morris.js Charts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
