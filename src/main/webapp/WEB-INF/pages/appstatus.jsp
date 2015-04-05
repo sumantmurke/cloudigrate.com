@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">CloudIgrate</a>
+                <a class="navbar-brand" href="getIndex">CloudIgrate</a>
             </div>
             <!-- /.navbar-header -->
 
