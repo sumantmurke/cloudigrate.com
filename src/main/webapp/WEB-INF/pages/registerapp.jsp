@@ -354,6 +354,54 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                
+                <table cellpadding="5px">
+								<!--Body content-->
+								<tr></tr>
+								<tr>
+									<td><h5>Application Name</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="application" class="required" placeholder="Application Name">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Publisher Name</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="publisher" class="required" placeholder="Publsiher Name">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Application Description</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="description" class="required" placeholder="Application Description">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Organization</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="organization" class="required" placeholder="Organization">
+										</div></td>
+								</tr>
+								<tr></tr>
+								
+								<tr></tr>
+								
+								<tr></tr>
+								<tr>
+								<td></td>
+									<td></td>
+									<td><div class="col-sm-offset-2 col-sm-10">
+									<button id="registerApp" class="btn btn-primary" type="button" onclick="registerApp()">Register your Application</button>
+								</div></td>
+								</tr>
+							</table>
             </div>
             <!-- /.container-fluid -->
         </div>
