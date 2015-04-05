@@ -16,7 +16,6 @@ public class MainController {
 
 		model.addAttribute("movie", name);
 		return "list";
-
 	}
 	
 	@RequestMapping(value="/getInstance", method = RequestMethod.GET)
@@ -94,5 +93,33 @@ public class MainController {
 		
 		System.out.println("inside getmorrischart");
 		return new ModelAndView("morris");
+	}
+	
+	@RequestMapping(value="/getUserprofile", method = RequestMethod.GET)
+	public ModelAndView getUserprofile(){
+		
+		System.out.println("inside getuserprofile");
+		return new ModelAndView("userprofile");
+	}
+	
+	@RequestMapping(value="/getHome", method = RequestMethod.GET)
+	public ModelAndView getHome(){
+		
+		System.out.println("inside gethome");
+		return new ModelAndView("home");
+	}
+	
+	@RequestMapping(value="/getLogin", method = RequestMethod.GET)
+	public ModelAndView getLogin(){
+		
+		System.out.println("inside getlogin");
+		return new ModelAndView("login");
+	}	
+	
+	@RequestMapping(value="/getSignup", method = RequestMethod.GET)
+	public ModelAndView getSignup(){
+		
+		System.out.println("inside getsignup");
+		return new ModelAndView("signup");
 	}
 }
