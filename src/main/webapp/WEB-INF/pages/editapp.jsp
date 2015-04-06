@@ -30,6 +30,35 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+function editApp(){
+	alert("Inside editApp()");
+	 	
+	   var appId = $('#appId').val();
+	   var application = $('#application').val();
+	   var publisher = $('#publisher').val();
+	   var description = $('#description').val();
+	   var organization = $('#organization').val();
+	 
+		alert('application ID'+appId);
+	   
+		$.ajax({
+			url : "application",
+		    type: "PUT",
+		    data : "appId=" + appId + "application=" + application + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
+		   
+		    success:function(data, textStatus, jqXHR){
+		    	alert('success');
+		    	window.location.href="getViewapp";
+		    },
+		    error: function(jqXHR, textStatus, errorThrown){
+		    	alert('Could not process request.. ' + errorThrown);
+		    	window.location.href="getHome";
+		    }
+		});
+}
+</script>
+
 </head>
 
 <body>
