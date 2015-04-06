@@ -30,6 +30,34 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+function registerApp(){
+	alert("Inside registerApp()");
+	 
+	   var application = $('#application').val();
+	   var publisher = $('#publisher').val();
+	   var description = $('#description').val();
+	   var organization = $('#organization').val();
+	 
+		alert('application name'+application);
+	   
+		$.ajax({
+			url : "application",
+		    type: "POST",
+		    data : "application=" + application + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
+		   
+		    success:function(data, textStatus, jqXHR){
+		    	alert('success');
+		    	window.location.href="getViewapp";
+		    },
+		    error: function(jqXHR, textStatus, errorThrown){
+		    	alert('Could not process request.. ' + errorThrown);
+		    	window.location.href="getHome";
+		    }
+		});
+}
+</script>
+
 </head>
 
 <body>
@@ -45,7 +73,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">CloudIgrate</a>
+                <a class="navbar-brand" href="getIndex">CloudIgrate</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -245,12 +273,12 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -354,6 +382,54 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                
+                <table cellpadding="5px">
+								<!--Body content-->
+								<tr></tr>
+								<tr>
+									<td><h5>Application Name</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="application" class="required" placeholder="Application Name">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Publisher Name</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="publisher" class="required" placeholder="Publsiher Name">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Application Description</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="description" class="required" placeholder="Application Description">
+										</div></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td><h5>Organization</h5></td>
+									<td></td>
+									<td><div class="input-group">
+											<input type="text" id="organization" class="required" placeholder="Organization">
+										</div></td>
+								</tr>
+								<tr></tr>
+								
+								<tr></tr>
+								
+								<tr></tr>
+								<tr>
+								<td></td>
+									<td></td>
+									<td><div class="col-sm-offset-2 col-sm-10">
+									<button id="registerApp" class="btn btn-primary" type="button" onclick="registerApp()">Register your Application</button>
+								</div></td>
+								</tr>
+							</table>
             </div>
             <!-- /.container-fluid -->
         </div>
