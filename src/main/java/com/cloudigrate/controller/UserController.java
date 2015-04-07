@@ -17,7 +17,7 @@ public class UserController {
 final static Logger logger = Logger.getLogger(UserController.class);	
 	
 @RequestMapping(value="/signup", method = RequestMethod.POST)
-public ModelAndView createApplication(ModelMap model,
+public ModelAndView createUser(ModelMap model,
 		@FormParam("fname") String fname,
 		@FormParam("lname") String lname,
 		@FormParam("email") String email,
@@ -39,9 +39,25 @@ public ModelAndView createApplication(ModelMap model,
 	uf.createUser(u);
 	
 	
-	return new ModelAndView("instance");
+	return new ModelAndView("index");
 	
 }
+
+@RequestMapping(value="/login", method = RequestMethod.POST)
+public ModelAndView loginUser(ModelMap model, 
+		@FormParam("email") String email,
+		@FormParam("password") String password){
+	
+	UserFacade uf = new UserFacade();
+	boolean check = uf.loginCheckUser(email, password);
+
+	if(check == true){
+		return new ModelAndView("index");
+	}
+	
+	return new ModelAndView("index");
+}
+
 	
 
 }
