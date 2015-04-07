@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cloudigrate.facade.UserFacade;
+
 @Controller
 //@RequestMapping("/movie")
 public class MainController {
@@ -21,6 +23,13 @@ public class MainController {
 	
 	@RequestMapping(value="/getInstance", method = RequestMethod.GET)
 	public ModelAndView getInstance(){
+		
+		/*
+		 * Try for database
+		 */
+		
+		UserFacade uf = new UserFacade();
+		uf.createUser();
 		
 		System.out.println("inside getinstance");
 		return new ModelAndView("instance");
