@@ -9,6 +9,14 @@ public class Application {
 	String organization;
 	String keyId;
 	int userId;
+	String keyValue;
+	
+	public String getKeyValue() {
+		return keyValue;
+	}
+	public void setKeyValue(String keyValue) {
+		this.keyValue = keyValue;
+	}
 	public int getId() {
 		return id;
 	}
