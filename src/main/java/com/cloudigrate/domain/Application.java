@@ -7,7 +7,7 @@ public class Application {
 	String publisher;
 	String description;
 	String organization;
-	String keyId;
+	int keyId;
 	int userId;
 	String keyValue;
 	
@@ -47,10 +47,10 @@ public class Application {
 	public void setOrganization(String organization) {
 		this.organization = organization;
 	}
-	public String getKeyId() {
+	public int getKeyId() {
 		return keyId;
 	}
-	public void setKeyId(String keyId) {
+	public void setKeyId(int keyId) {
 		this.keyId = keyId;
 	}
 	public int getUserId() {

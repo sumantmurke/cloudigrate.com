@@ -34,17 +34,17 @@
 function registerApp(){
 	alert("Inside registerApp()");
 	 
-	   var application = $('#application').val();
+	   var name = $('#name').val();
 	   var publisher = $('#publisher').val();
 	   var description = $('#description').val();
 	   var organization = $('#organization').val();
 	 
-		alert('application name'+application);
+		alert('application name'+name);
 	   
 		$.ajax({
 			url : "application",
 		    type: "POST",
-		    data : "application=" + application + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
+		    data : "name=" + name + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
 		   
 		    success:function(data, textStatus, jqXHR){
 		    	alert('success');
@@ -390,7 +390,7 @@ function registerApp(){
 									<td><h5>Application Name</h5></td>
 									<td></td>
 									<td><div class="input-group">
-											<input type="text" id="application" class="required" placeholder="Application Name">
+											<input type="text" id="name" class="required" placeholder="Application Name">
 										</div></td>
 								</tr>
 								<tr></tr>

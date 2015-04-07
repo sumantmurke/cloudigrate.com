@@ -314,16 +314,16 @@
 											</tr>
 											</thead>
 											<tbody>
-											<%-- <c:forEach var="app" items="${application}"> --%>
+											 <c:forEach var="application" items="${allApplications}"> 
 												<tr>
 													<td>${application.id}</td>
-													<td>${app.application}</td>
-													<td>${app.publisher}</td>
-													<td>${app.description}</td>
-													<td>${app.organization}</td>
+													<td>${application.name}</td>
+													<td>${application.publisher}</td>
+													<td>${application.description}</td>
+													<td>${application.organization}</td>
 													<td><input type="button" value="Show key"></td>
 												</tr>
-											<%-- </c:forEach> --%>
+											 </c:forEach> 
 											</tbody>
 										</table>
 									</div>

@@ -34,18 +34,23 @@
 function editApp(){
 	alert("Inside editApp()");
 	 	
+	   var application = new Object();
+	  
 	   var appId = $('#appId').val();
-	   var application = $('#application').val();
-	   var publisher = $('#publisher').val();
-	   var description = $('#description').val();
-	   var organization = $('#organization').val();
+	   
+	 var name = $('#name').val();
+	 var publisher = $('#publisher').val();
+	 var description = $('#description').val();
+	 var organization = $('#organization').val();
 	 
+	   //var url = "application"+applicationId;
 		alert('application ID'+appId);
+		alert('Name: '+name);
 	   
 		$.ajax({
-			url : "application",
-		    type: "PUT",
-		    data : "appId=" + appId + "application=" + application + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
+			url : "application/"+appId,
+		    type: "POST",
+		    data : "name=" + name + "&publisher=" + publisher + "&description=" + description + "&organization=" + organization,
 		   
 		    success:function(data, textStatus, jqXHR){
 		    	alert('success');
@@ -398,7 +403,7 @@ function editApp(){
 									<td><h5>Application Name</h5></td>
 									<td></td>
 									<td><div class="input-group">
-											<input type="text" id="application" class="required" placeholder="Application Name">
+											<input type="text" id="name" class="required" placeholder="Application Name">
 										</div></td>
 								</tr>
 								<tr></tr>

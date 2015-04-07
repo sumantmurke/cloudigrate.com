@@ -42,21 +42,21 @@ public class ApplicationController {
 		createApplication.setPublisher(publisher);
 		createApplication.setDescription(description);
 		createApplication.setOrganization(organization);
-		
-		System.out.println("inside create Application");
+		createApplication.setUserId(1);
+		System.out.println("inside create Application: Name "+name);
 		Application application = applicationFacade.createApplication(createApplication);
 		model.addAttribute("application", application);
 		return new ModelAndView("viewapp");
 	}
 	
-	@RequestMapping(value="/application/{applicationId}", method = RequestMethod.PUT)
+	@RequestMapping(value="/application/{appId}", method = RequestMethod.POST)
 	public ModelAndView updateApplication(ModelMap model,
-			@PathParam("applicationId") String applicationId,
+			@PathVariable("appId") String applicationId,
 			@FormParam("name") String name,
 			@FormParam("publisher") String publisher,
 			@FormParam("description") String description,
 			@FormParam("organization") String organization){
-		System.out.println("inside update Application");
+		System.out.println("inside update Application: "+applicationId+" Name: "+name+" Pub: "+publisher);
 		Application updateApplication = new Application();
 		updateApplication.setId(Integer.parseInt(applicationId));
 		updateApplication.setName(name);
@@ -67,13 +67,22 @@ public class ApplicationController {
 		return new ModelAndView("viewapp");
 	}
 	
-	@RequestMapping(value="/allApplication/{userId}", method = RequestMethod.GET)
-	public ModelAndView getAllApplication(ModelMap model,
-			@PathParam("userId") String userId){
-		System.out.println("inside getting all Application");
-		//User id to be passed to getAllApplications
+	@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
+	public ModelAndView getViewapp(){
+		
+		String userId = "1"; // This will be taken from Session
+		System.out.println("inside getviewapp");
 		ArrayList<Application> allApplications = applicationFacade.getAllApplications(Integer.parseInt(userId));
-		model.addAttribute("allApplications", allApplications);
-		return new ModelAndView("viewapp");
+		return new ModelAndView("viewapp", "allApplications", allApplications);
 	}
+	
+//	@RequestMapping(value="/allApplication/{userId}", method = RequestMethod.GET)
+//	public ModelAndView getAllApplication(ModelMap model,
+//			@PathParam("userId") String userId){
+//		System.out.println("inside getting all Application");
+//		//User id to be passed to getAllApplications
+//		ArrayList<Application> allApplications = applicationFacade.getAllApplications(Integer.parseInt(userId));
+//		model.addAttribute("allApplications", allApplications);
+//		return new ModelAndView("viewapp");
+//	}
 }

@@ -18,8 +18,13 @@ public class ApplicationFacade {
 
 	public Application createApplication(Application application) {
 		// TODO Auto-generated method stub
+		Key newKey = keyFacade.createNewKey(application.getName());
+		application.setKeyValue(newKey.getValue());
+		application.setKeyId(newKey.getId());
+		System.out.println("Testing key: "+application.getKeyId());
 		Application newApplication = sqlConnection.createApplication(application);
-		Key newKey = keyFacade.createNewKey(newApplication.getName());
+		
+		System.out.println("Testing key value: "+newKey.getEncodedValue());
 		newApplication.setKeyValue(newKey.getEncodedValue());
 		return newApplication;
 	}
@@ -31,11 +36,12 @@ public class ApplicationFacade {
 
 	public ArrayList<Application> getAllApplications(int userId) {
 		// TODO Auto-generated method stub
+		System.out.println("Testing getAllApplications: id= "+userId);
 		ArrayList<Application> allApplications = sqlConnection.getAllApplications(userId);
 		Key key = null;
 		for(Application application : allApplications)
 		{
-			key = sqlConnection.getKeyById(Integer.parseInt(application.getKeyId()));
+			key = sqlConnection.getKeyById(application.getKeyId());
 			application.setKeyValue(key.getEncodedValue());
 		}
 		return allApplications;
