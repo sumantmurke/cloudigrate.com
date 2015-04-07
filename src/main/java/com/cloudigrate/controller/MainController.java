@@ -26,9 +26,7 @@ public class MainController {
 		/*
 		 * Try for database
 		 */
-		
-		UserFacade uf = new UserFacade();
-		uf.createUser();
+
 		
 		System.out.println("inside getinstance");
 		return new ModelAndView("instance");

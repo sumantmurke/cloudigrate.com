@@ -6,19 +6,12 @@ import com.cloudigrate.domain.User;
 public class UserFacade {
 
 	
-public void createUser(){
+public void createUser(User user){
 	
-	System.out.println("inside db");
-	User u = new User();
-	u.setCreditCard("VISA");
-	u.setFirstName("sumant");
-	u.setLastName("Murke");
-	u.setPassword("asd");
-	u.setPhone("408");
-	u.setEmail("asdasd");
-	u.setIsAdmin(0);;
+	System.out.println("inside create user facade");
+	
 	
 	UserDao ud = new UserDao();
-	ud.signup(u);
+	ud.signup(user);
 }
 }
