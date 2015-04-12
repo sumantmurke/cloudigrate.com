@@ -103,7 +103,7 @@ function uploadFormData(){
                                     <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id = "creditcard" placeholder="Credit Card" name="Credit Card" type="text">
+                                    <input class="form-control" id = "creditcard" placeholder="Credit Card Number" name="Credit Card" type="text">
                                 </div>
                                 <div class="checkbox">
                                     <label>

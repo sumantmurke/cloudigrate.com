@@ -38,8 +38,6 @@ public ModelAndView createUser(ModelMap model,
 	u.setIsAdmin(0);
 	UserFacade uf = new UserFacade();
 	uf.createUser(u);
-	
-	
 	return new ModelAndView("index");
 	
 }
@@ -48,15 +46,28 @@ public ModelAndView createUser(ModelMap model,
 public ModelAndView loginUser( 
 		@RequestParam("email") String email,
 		@RequestParam("password") String password){
-	String e = email;
-	String a = password;
+	System.out.print("email" + email);
+	System.out.println("pwd" + password);
 	ModelAndView model = new ModelAndView();
-	if(email == e && password == a){
+	UserFacade userFacade = new UserFacade();
+	if(email == "admin" && password == "password"){
 		System.out.println("inside admin");
-		
 		model.setViewName("admindashboard");
-		
 	}
+	else
+	{
+		if(userFacade.loginCheckUser(email, password))
+		{
+			System.out.println("inside normal user login");
+			model.setViewName("index");
+		}
+		else
+		{
+			System.out.println("inside normal user login");
+			model.setViewName("home");
+		}
+	}
+	
 /*	
 	System.out.println(" username inside login controler "+email + " password "+password);
 	UserFacade uf = new UserFacade();
@@ -66,7 +77,6 @@ public ModelAndView loginUser(
 		return new ModelAndView("index");
 	}
 	*/
-	System.out.println("before return" +model.getViewName());
 	return model;
 }
 

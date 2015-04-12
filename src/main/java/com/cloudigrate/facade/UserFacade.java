@@ -18,10 +18,6 @@ public boolean loginCheckUser(String fname, String lname){
 	
 	UserDao ud = new UserDao();
 	boolean check = ud.loginCheck(fname, lname);
-	
 	return check;
-	
 }
-
-
 }
