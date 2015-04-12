@@ -129,4 +129,18 @@ public class MainController {
 		System.out.println("inside getsignup");
 		return new ModelAndView("signup");
 	}
+	
+	@RequestMapping(value="/getAdmindashboard", method = RequestMethod.GET)
+	public ModelAndView getAdmindashboard(){
+		
+		System.out.println("inside getadmindashboard");
+		return new ModelAndView("admindashboard");
+	}
+	
+	@RequestMapping(value="/getAdminsettings", method = RequestMethod.GET)
+	public ModelAndView getAdminsettings(){
+		
+		System.out.println("inside getadminsettings");
+		return new ModelAndView("adminsettings");
+	}
 }

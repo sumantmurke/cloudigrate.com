@@ -33,23 +33,28 @@
 <script type="text/javascript">
 
 function userLogin(){
-	// alert('inside Login page');
+	 alert('inside Login page');
 	   var email = $('#email').val();
 	   var password = $('#password').val();
-	 
-	// alert('Username : '+email);
+	  
+	   
+	   
+		/* 	 
+	alert('Username : '+email);
 	   
 		$.ajax({
-			url : "/login",
-		    type: "GET",
+			url : "login",
+		    type: "POST",
 		    data : "email=" + email + "&password=" + password,
-		    	success:function(data, textStatus, jqXHR){			    	
-			    	    
+	
+		    success:function(data, textStatus, jqXHR){			    	
+		    		alert('success');
+			    	//window.location.href="getIndex";
 			    },
 		    error: function(jqXHR, textStatus, errorThrown){
 		    	alert('Could not process request.. ' + errorThrown);
-		    	window.location.href="login.jsp";
-		    }
+		    	window.location.href="login";
+		    } */
 		});
 }
 </script>
@@ -66,13 +71,13 @@ function userLogin(){
                         <h3 class="panel-title">CloudIgrate - Log In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" id="mailajob" method="post" action="login">
                             <fieldset>                            	
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
                                 </div>                                
                                 <div class="checkbox">
                                     <label>
@@ -81,7 +86,7 @@ function userLogin(){
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login"  onclick="userLogin()">Login</button> -->
-                                <a type="submit" href="getIndex" class="btn btn-lg btn-success btn-block" onclick="userLogin()">LogIn</a>
+                                <a  type="submit" class="btn btn-lg btn-success btn-block" onclick=" document.getElementById('mailajob').submit();">LogIn</a>
                                 <a href="getSignup" class="btn btn-lg btn-success btn-block" >Not a member? SignUp</a>
                             </fieldset>
                         </form>

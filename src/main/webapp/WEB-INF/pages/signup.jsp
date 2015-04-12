@@ -34,8 +34,8 @@
 function checkPasswordMatch(){
 	//var checkPasswordMatch = function() {
 	    var password = $("#password").val();
-	    var rePassword = $("#reEnterPasswordInput").val();		
-	    if (password != rePassword)
+	    var confirmPassword = $("#confirmPassword").val();		
+	    if (password != confirmPassword)
 	        $("#divCheckPasswordMatch").html("Passwords do not match!");
 	    else{
 	        $("#divCheckPasswordMatch").html("");  
@@ -43,22 +43,22 @@ function checkPasswordMatch(){
 	}
 			   
 function uploadFormData(){
-	$("#reEnterPasswordInput").keyup(checkPasswordMatch());
+	$("#confirmPassword").keyup(checkPasswordMatch());
 	// alert('inside uploadform');
 	 
-	   var fname = $('#login-firstname').val();
-	   var lname = $('#login-lastname').val();
-	   var email = $('#login-email').val();
+	   var fname = $('#firstname').val();
+	   var lname = $('#lastname').val();
+	   var email = $('#email').val();
 	   var password = $('#password').val();
-	   var phonenumber = $('#phone-number').val();
-	   var creditcard = $('#credit-card').val();	
+	   var phonenumber = $('#phonenumber').val();
+	   var creditcard = $('#creditcard').val();	
 	// alert('name'+fname);
 	   
 		$.ajax({
-			url : "rest/file/signup",
+			url : "signup",
 		    type: "POST",
 		    data : "fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password + "&phonenumber" + phonenumber + "&creditcard" + creditcard,
-		   
+		 
 		    success:function(data, textStatus, jqXHR){
 		    	alert('success');
 		    	window.location.href="getIndex";
@@ -85,25 +85,25 @@ function uploadFormData(){
                         <form role="form">
                             <fieldset>
                             	<div class="form-group">
-                                    <input class="form-control" placeholder="First Name" name="First Name" type="text" autofocus>
+                                    <input class="form-control" id = "firstname" placeholder="First Name" name="First Name" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Last Name" name="Last Name" type="text"> 
+                                    <input class="form-control" id = "lastname" placeholder="Last Name" name="Last Name" type="text"> 
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email">
+                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch();">
+                                    <input class="form-control" id = "confirmpassword" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch();">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Phone Number" name="Phone Number" type="text">
+                                    <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Credit Card" name="Credit Card" type="text">
+                                    <input class="form-control" id = "creditcard" placeholder="Credit Card" name="Credit Card" type="text">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -111,7 +111,7 @@ function uploadFormData(){
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="getIndex" class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Sign Up</a>
+                                <a class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Sign Up</a>
                             </fieldset>
                         </form>
                     </div>

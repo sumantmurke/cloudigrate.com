@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="getIndex">CloudIgrate</a>
+                <a class="navbar-brand" href="getAdmindashboard">CloudIgrate</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -278,71 +278,13 @@
                             </span>
                             </div>
                             <!-- /input-group -->
-                        </li>                        
+                        </li>                                                
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> API Methods<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                            	 <li>
-                                    <a href="#">IAAS <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="getInstance">Instance</a>
-                                        </li>
-                                    </ul>                                    
-                                </li>
-                                <li>
-                                    <a href="#">PAAS <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="getSql">SQL</a>
-                                        </li>
-                                        <li>
-                                            <a href="getNosql">NoSQL</a>
-                                        </li>
-                                        <li>
-                                            <a href="getStorage">Storage</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                <li>
-                                    <a href="#">SAAS</a>
-                                </li> 
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="getAdmindashboard"><i class="fa fa-dashboard fa-fw"></i>Admin Dashboard</a>
                         </li>
                         <li>
-                            <a href="getIndex"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="getAppstatus"><i class="fa fa-table fa-fw"></i> AppStatus</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Your application<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="getRegisterapp">Register</a>
-                                </li>
-                                <li>
-                                    <a href="getViewapp">View</a>
-                                </li>
-                                <li>
-                                    <a href="getEditapp">Edit</a>
-                                </li>
-                            </ul>    
-                        </li> 
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="getFlotchart">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="getMorrischart">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>                        
+                            <a href="getAdminsettings"><i class="fa fa-table fa-fw"></i>Admin Settings</a>
+                        </li>                                                
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -353,7 +295,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Admin Dashboard</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

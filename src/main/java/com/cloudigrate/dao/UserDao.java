@@ -86,7 +86,7 @@ public boolean loginCheck(String username , String password){
 	        Class.forName("com.mysql.jdbc.Driver").newInstance();
 	        Connection con = DriverManager.getConnection(connectionString, dbUsername, dbPassword);
 	        Statement stmt = (Statement) con.createStatement();
-	        query = "SELECT username, password FROM users WHERE username='" + username + "' AND password='" + password + "';";
+	        query = "SELECT email, password FROM users WHERE email='" + username + "' AND password='" + password + "';";
 	        System.out.println("username"+username+"pwd"+password);
 	        stmt.executeQuery(query);
 	        ResultSet rs = stmt.getResultSet();

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cloudigrate.domain.User;
@@ -26,7 +27,7 @@ public ModelAndView createUser(ModelMap model,
 		@FormParam("creditcard") String creditcard
 		){
 	logger.info("inside signup page");
-	
+	System.out.println("inside signup controller");
 	User u = new User();
 	u.setCreditCard(creditcard);
 	u.setFirstName(fname);
@@ -44,18 +45,29 @@ public ModelAndView createUser(ModelMap model,
 }
 
 @RequestMapping(value="/login", method = RequestMethod.POST)
-public ModelAndView loginUser(ModelMap model, 
-		@FormParam("email") String email,
-		@FormParam("password") String password){
-	
+public ModelAndView loginUser( 
+		@RequestParam("email") String email,
+		@RequestParam("password") String password){
+	String e = email;
+	String a = password;
+	ModelAndView model = new ModelAndView();
+	if(email == e && password == a){
+		System.out.println("inside admin");
+		
+		model.setViewName("admindashboard");
+		
+	}
+/*	
+	System.out.println(" username inside login controler "+email + " password "+password);
 	UserFacade uf = new UserFacade();
 	boolean check = uf.loginCheckUser(email, password);
 
 	if(check == true){
 		return new ModelAndView("index");
 	}
-	
-	return new ModelAndView("index");
+	*/
+	System.out.println("before return" +model.getViewName());
+	return model;
 }
 
 	
