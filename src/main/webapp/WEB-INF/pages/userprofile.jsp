@@ -57,7 +57,7 @@
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <a href="#">
-                                <div>
+                            	<div>
                                     <strong>John Smith</strong>
                                     <span class="pull-right text-muted">
                                         <em>Yesterday</em>
@@ -345,20 +345,48 @@
         </nav>
 
         <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">User Profile</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
+        <div class="container">
+	       <div class="row">
+	           <div class="col-md-4 col-md-offset-4">
+	               <div class="login-panel panel panel-default">
+	                   <div class="panel-heading">
+	                       <h3 class="panel-title">CloudIgrate - User Profile</h3>
+	                   </div>
+	                   <div class="panel-body">
+	                       <form role="form">
+	                           <fieldset>
+	                           	<div class="form-group">
+	                                   <input class="form-control" id = "firstname" placeholder="First Name" name="First Name" type="text" autofocus>
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "lastname" placeholder="Last Name" name="Last Name" type="text"> 
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email">
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "confirmpassword" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch();">
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" type="text">
+	                               </div>
+	                               <div class="form-group">
+	                                   <input class="form-control" id = "creditcard" placeholder="Credit Card Number" name="Credit Card" type="text">
+	                               </div>	                               
+	                               <!-- Change this to a button or input when using this as a form -->
+	                               <a class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Update Profile</a>
+	                           </fieldset>
+	                       </form>
+	                   </div>
+	               </div>
+	           </div>
         </div>
-        <!-- /#page-wrapper -->
-
+  
+       <!-- /#page-wrapper -->
+		</div>
     </div>
     <!-- /#wrapper -->
 

@@ -31,49 +31,85 @@
     <![endif]-->
 
 <script type="text/javascript">
+
+function checkEmail(emailField){
+    //var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    alert("inside email");
+    if (reg.test(emailField) == false) 
+    {
+        alert('Invalid Email Address');
+        return false;
+    }
+    return true;
+}       
+
 function checkPasswordMatch(){
-	//var checkPasswordMatch = function() {
-	    var password = $("#password").val();
-	    var confirmPassword = $("#confirmPassword").val();		
+	    var password = $("#password").val();	    
+	    var confirmPassword = $("#confirmpassword").val();	    
 	    if (password != confirmPassword)
-	        $("#divCheckPasswordMatch").html("Passwords do not match!");
-	    else{
-	        $("#divCheckPasswordMatch").html("");  
+	    	alert("Passwords do not match");
+	    	//$("#divCheckPasswordMatch").html("Passwords do not match!");
+	    else{	    		
+	        //$("#divCheckPasswordMatch").html("");  
 	    }
 	}
 			   
-function uploadFormData(){
-	$("#confirmPassword").keyup(checkPasswordMatch());
-	// alert('inside uploadform');
-	 
-	   var fname = $('#firstname').val();
-	   var lname = $('#lastname').val();
-	   var email = $('#email').val();
-	   var password = $('#password').val();
-	   var phonenumber = $('#phonenumber').val();
-	   var creditcard = $('#creditcard').val();	
-	// alert('name'+fname);
-	   
-		$.ajax({
-			url : "signup",
-		    type: "POST",
-		    data : "fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password + "&phonenumber" + phonenumber + "&creditcard" + creditcard,
-		 
-		    success:function(data, textStatus, jqXHR){
-		    	alert('success');
-		    	window.location.href="getIndex";
-		    },
-		    error: function(jqXHR, textStatus, errorThrown){
-		    	alert('Could not process request.. ' + errorThrown);
-		    	window.location.href="getHome";
-		    }
-		});
+function uploadFormData(){	
+	//$("#confirmPassword").keyup(checkPasswordMatch());	 
+		var fname = $('#firstname').val();
+		var lname = $('#lastname').val();
+		var email = $('#email').val();
+		var password = $('#password').val();
+		var phonenumber = $('#phonenumber').val();
+		var creditcard = $('#creditcard').val();		   
+		if (fname == "" || lname == "" || email == "" || password == "" || phonenumber == "" || creditcard == ""){
+		 	alert("All fields are compulsory");			
+		}
+		else{   
+			$.ajax({
+				url : "signup",
+			    type: "POST",
+			    data : "fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password + "&phonenumber" + phonenumber + "&creditcard" + creditcard,			 
+			    success:function(data, textStatus, jqXHR){
+			    	alert('success');
+			    	window.location.href="getIndex";
+			    },
+			    error: function(jqXHR, textStatus, errorThrown){
+			    	alert('Could not process request.. ' + errorThrown);
+			    	window.location.href="getHome";
+			    }
+			});
+		}
 }
+		
+function checkPhoneNumber(phonenumber)  
+{  
+	alert("Inside phone number");
+	var reg = /^\d{10}$/;
+	//var reg = ^[1-9]([0-9]{1,45}$);
+	if (reg.test(phonenumber) == false) 
+    {
+        alert('Invalid Phone Number');
+        return false;
+    }
+    return true;  
+}  
+
+function checkCreditCard(creditcardnumber)  
+{  	
+	var reg = /^\d{16}$/;
+    if (reg.test(creditcardnumber) == false) 
+    {
+        alert('Invalid Credit Card');
+        return false;
+    }
+    return true;  
+}  
+
 </script>
 </head>
-
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -91,25 +127,27 @@ function uploadFormData(){
                                     <input class="form-control" id = "lastname" placeholder="Last Name" name="Last Name" type="text"> 
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email">
+                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email" onChange = "checkEmail(this.value)">
+                                </div>
+                                <div class="form-group">                               
+                                    <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="" onChange="checkPassword()">                                    
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" id = "confirmpassword" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch()">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id = "confirmpassword" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch();">
+                                    <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" onChange ="checkPhoneNumber(this.value)">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" type="text">
+                                    <input class="form-control" id = "creditcard" placeholder="Credit Card Number" name="Credit Card" type="text" onChange = "checkCreditCard(this.value)">
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" id = "creditcard" placeholder="Credit Card Number" name="Credit Card" type="text">
-                                </div>
+                                <!--  
                                 <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
                                 </div>
+                                -->
                                 <!-- Change this to a button or input when using this as a form -->
                                 <a class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Sign Up</a>
                             </fieldset>

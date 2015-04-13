@@ -35,10 +35,19 @@
 function userLogin(){
 	 alert('inside Login page');
 	   var email = $('#email').val();
-	   var password = $('#password').val();
-	  
+	   var password = $('#password').val();	  
+}	   
 	   
-	   
+function checkEmail(emailField){	
+	//var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;	
+	if (reg.test(emailField) == false) 
+	{
+	    alert('Invalid Email Address');
+	    return false;
+	}
+	return true;
+}   	   
 		/* 	 
 	alert('Username : '+email);
 	   
@@ -54,9 +63,9 @@ function userLogin(){
 		    error: function(jqXHR, textStatus, errorThrown){
 		    	alert('Could not process request.. ' + errorThrown);
 		    	window.location.href="login";
-		    } */
-		});
-}
+		    } 
+		};
+/}*/
 </script>
 
 </head>
@@ -74,18 +83,19 @@ function userLogin(){
                         <form role="form" id="mailajob" method="post" action="login">
                             <fieldset>                            	
                                 <div class="form-group">
-                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email" onChange = "checkEmail(this.value)" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
-                                </div>                                
+                                </div>       
+                                <!--                          
                                 <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
-                                </div>
+                                </div> -->                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login"  onclick="userLogin()">Login</button> -->
+                                <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login" onclick="userLogin()">Login</button> -->
                                 <a  type="submit" class="btn btn-lg btn-success btn-block" onclick=" document.getElementById('mailajob').submit();">LogIn</a>
                                 <a href="getSignup" class="btn btn-lg btn-success btn-block" >Not a member? SignUp</a>
                             </fieldset>
