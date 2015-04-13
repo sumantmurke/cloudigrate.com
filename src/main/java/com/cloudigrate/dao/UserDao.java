@@ -106,6 +106,56 @@ public boolean loginCheck(String username , String password){
 	
 	
 }
+
+
+
+
+/**
+ * @param userid 
+ * 
+ */
+public User getuserdetails(String userid) {
+	// TODO Auto-generated method stub
+	 String query;
+	 String firstname, lastname,email, creditcard,phone;
+	 User user = new User();
+	  try {
+	 
+	        Class.forName("com.mysql.jdbc.Driver").newInstance();
+	        Connection con = DriverManager.getConnection(connectionString, dbUsername, dbPassword);
+	        Statement stmt = (Statement) con.createStatement();
+	        query = "SELECT * FROM users WHERE email='" + userid + "';";
+	        System.out.println("username"+userid);
+	        stmt.executeQuery(query);
+	        ResultSet rs = stmt.getResultSet();
+	        if ( rs.next() ) {
+	        	firstname = rs.getString("firstName");
+	        	lastname = rs.getString("lastName");
+	        	email = rs.getString("email");
+	        	creditcard = rs.getString("creditCard");
+	        	phone = rs.getString("phone");
+	        	user.setCreditCard(creditcard);
+	        	user.setEmail(email);
+	        	user.setFirstName(firstname);
+	        	user.setLastName(lastname);
+	        	user.setPhone(phone);
+	        }
+	        
+	       
+	        con.close();
+	       
+	    } catch (InstantiationException e) {
+	        e.printStackTrace();
+	    } catch (IllegalAccessException e) {
+	        e.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	return user;
+	 
+}
 	
 	
 }
