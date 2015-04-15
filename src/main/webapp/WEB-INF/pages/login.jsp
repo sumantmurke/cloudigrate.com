@@ -96,6 +96,7 @@ function checkEmail(emailField){
                                 </div> -->                                 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login" onclick="userLogin()">LogIn</button> -->
+                                
                                 <a  type="submit" class="btn btn-lg btn-success btn-block" onclick=" document.getElementById('mailajob').submit();">Log In</a>
                                 <a href="getSignup" class="btn btn-lg btn-success btn-block" >Not a member? SignUp</a>
                             </fieldset>

@@ -52,12 +52,12 @@ public ModelAndView loginUser(
 		@RequestParam("password") String password,
 		HttpSession session
 		){
-	System.out.print("email" + email);
-	System.out.println("pwd" + password);
+	System.out.println("email " + email);
+	System.out.println("pwd " + password);
 	ModelAndView model = new ModelAndView();
 
 	UserFacade userFacade = new UserFacade();
-	if(email == "admin@gmail.com" && password == "password"){
+	if(email.equals("admin@gmail.com") && password.equals("password")){
 		System.out.println("inside admin");
 		model.setViewName("admindashboard");
 	}
@@ -74,7 +74,7 @@ public ModelAndView loginUser(
 		}
 		else
 		{
-			System.out.println("inside normal user login");
+			System.out.println("inside normal user login with login failed");
 			model.setViewName("home");
 		}
 	}
