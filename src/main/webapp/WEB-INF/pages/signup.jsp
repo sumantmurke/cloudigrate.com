@@ -149,7 +149,7 @@ function checkCreditCard(creditcardnumber)
                                 </div>
                                 -->
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Sign Up</a>
+                                <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Sign Up</a>
                             </fieldset>
                         </form>
                     </div>

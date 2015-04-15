@@ -194,7 +194,7 @@
 					    	</td>
 					    	<td>
 					    	<div class="btn-group">
-						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style = "color:">
+						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 						    	Choose the Cloud Vendor <span class="caret"></span>
 						  		</button>
 						  		<ul class="dropdown-menu" role="menu">
