@@ -157,7 +157,12 @@ function checkCreditCard(creditcardnumber)
             </div>
         </div>
     </div>
-
+	
+	<footer class="footer" >
+      <div class="container" style = "height:40px">
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+      </div>     
+    </footer>
     <!-- jQuery -->
     <script src="startbootstrap-sb-admin-2-1.0.5/bower_components/jquery/dist/jquery.min.js"></script>
 

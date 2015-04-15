@@ -49,57 +49,7 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                            	<div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
+            <ul class="nav navbar-top-links navbar-right">                
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -110,7 +60,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 1</strong>
+                                        <strong>Instance</strong>
                                         <span class="pull-right text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -126,7 +76,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 2</strong>
+                                        <strong>SQL</strong>
                                         <span class="pull-right text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -142,7 +92,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 3</strong>
+                                        <strong>NoSQL</strong>
                                         <span class="pull-right text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -158,7 +108,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 4</strong>
+                                        <strong>Storage</strong>
                                         <span class="pull-right text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -179,76 +129,15 @@
                     </ul>
                     <!-- /.dropdown-tasks -->
                 </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
+                <!-- /.dropdown -->                
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>                        
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -344,50 +233,64 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
-        <div class="container">
-	       <div class="row">
-	           <div class="col-md-4 col-md-offset-4">
-	               <div class="login-panel panel panel-default">
-	                   <div class="panel-heading">
-	                       <h3 class="panel-title">CloudIgrate - User Profile</h3>
-	                   </div>
-	                   <div class="panel-body">
-	                       <form role="form">
-	                           <fieldset>
-	                           	<div class="form-group">
-	                                   <input class="form-control" id = "firstname" placeholder="First Name" name="First Name" type="text" autofocus>
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "lastname" placeholder="Last Name" name="Last Name" type="text"> 
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "email" placeholder="E-mail" name="email" type="email">
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "password" placeholder="Password" name="password" type="password" value="">
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "confirmpassword" placeholder="Confirm Password" name="confirmpassword" type="password" value="" onChange="checkPasswordMatch();">
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "phonenumber" placeholder="Phone Number" name="Phone Number" type="text">
-	                               </div>
-	                               <div class="form-group">
-	                                   <input class="form-control" id = "creditcard" placeholder="Credit Card Number" name="Credit Card" type="text">
-	                               </div>	                               
-	                               <!-- Change this to a button or input when using this as a form -->
-	                               <a class="btn btn-lg btn-success btn-block" onclick="uploadFormData()">Update Profile</a>
-	                           </fieldset>
-	                       </form>
-	                   </div>
-	               </div>
-	           </div>
+
+
+
+		<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">                        
+                        <h2 class="page-header"><strong><em>CloudIgrate - User Profile</em></strong></h2>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <form>
+					  <div class="form-group">
+					    <label for="First Name">First Name</label>
+					    <input type="text" class="form-control" id="firstname" placeholder="First Name" autofocus>
+					  </div>
+					  <div class="form-group">
+					    <label for="Last Name">Last Name</label>
+					    <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+					  </div>
+					  <div class="form-group">
+					    <label for="E-mail">E-mail</label>
+					    <input type="email" class="form-control" id="email" placeholder="E-mail">
+					  </div>
+					  <div class="form-group">
+					    <label for="Password">Password</label>
+					    <input type="password" class="form-control" id="password" placeholder="Password">
+					  </div>
+					  <div class="form-group">
+					    <label for="ConfirmPassword">Confirm Password</label>
+					    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" value="" onChange="checkPasswordMatch();">
+					  </div>
+					  <div class="form-group">
+					    <label for="Phone Number">Phone Number</label>
+					    <input type="text" class="form-control" id="phonenumber" placeholder="Phone Number">
+					  </div>
+					  <div class="form-group">
+					    <label for="Credit Card Number">Credit Card Number</label>
+					    <input type="text" class="form-control" id="creditcard" placeholder="Credit Card Number">
+					  </div>
+					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a>
+					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
+					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
+				</form>                        
+            </div>
+            <!-- /.container-fluid -->
         </div>
-  
-       <!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->   
 		</div>
     </div>
+    
+    <footer class="footer" >
+      <div class="container" style = "height:40px">
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+      </div>     
+    </footer>
     <!-- /#wrapper -->
 
     <!-- jQuery -->

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CloudIgrate</title>
+    <title>CloudIgrate - Admin Profile</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="startbootstrap-sb-admin-2-1.0.5/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="getIndex">CloudIgrate</a>
+                <a class="navbar-brand" href="#">CloudIgrate</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -136,7 +136,9 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="getAdminprofile"><i class="fa fa-user fa-fw"></i> Admin Profile</a>
+                        </li>
+                        <li><a href="getAdminsettings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>                        
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -155,77 +157,16 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                             </div>
                             <!-- /input-group -->
-                        </li>
+                        </li>                                                
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> API Methods<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                            	 <li>
-                                    <a href="#">IAAS <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="getInstance">Instance</a>
-                                        </li>
-                                    </ul>                                    
-                                </li>
-                                <li>
-                                    <a href="#">PAAS <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="getSql">SQL</a>
-                                        </li>
-                                        <li>
-                                            <a href="getNosql">NoSQL</a>
-                                        </li>
-                                        <li>
-                                            <a href="getStorage">Storage</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                <li>
-                                    <a href="#">SAAS</a>
-                                </li> 
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="getIndex"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="getAppstatus"><i class="fa fa-table fa-fw"></i> AppStatus</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Your application<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="getRegisterapp">Register</a>
-                                </li>
-                                <li>
-                                    <a href="getViewapp">View</a>
-                                </li>
-                                <li>
-                                    <a href="getEditapp">Edit</a>
-                                </li>
-                            </ul>    
-                        </li> 
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="getFlotchart">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="getMorrischart">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>                        
+                            <a href="getAdmindashboard"><i class="fa fa-dashboard fa-fw"></i> Admin Dashboard</a>
+                        </li>                                                                      
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -233,21 +174,57 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
+
+
+
+		<!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                    	<h2 class="page-header"><strong><em>Application Status</em></strong></h2>                        
+                    	<h2 class="page-header"><strong><em>Admin Profile</em></strong></h2>                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                <form>
+					  <div class="form-group">
+					    <label for="First Name">First Name</label>
+					    <input type="text" class="form-control" id="firstname" placeholder="First Name" autofocus>
+					  </div>
+					  <div class="form-group">
+					    <label for="Last Name">Last Name</label>
+					    <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+					  </div>
+					  <div class="form-group">
+					    <label for="E-mail">E-mail</label>
+					    <input type="email" class="form-control" id="email" placeholder="E-mail">
+					  </div>
+					  <div class="form-group">
+					    <label for="Password">Password</label>
+					    <input type="password" class="form-control" id="password" placeholder="Password">
+					  </div>
+					  <div class="form-group">
+					    <label for="ConfirmPassword">Confirm Password</label>
+					    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" value="" onChange="checkPasswordMatch();">
+					  </div>
+					  <div class="form-group">
+					    <label for="Phone Number">Phone Number</label>
+					    <input type="text" class="form-control" id="phonenumber" placeholder="Phone Number">
+					  </div>
+					  <div class="form-group">
+					    <label for="Credit Card Number">Credit Card Number</label>
+					    <input type="text" class="form-control" id="creditcard" placeholder="Credit Card Number">
+					  </div>
+					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a>
+					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
+					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
+				</form>                        
             </div>
             <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
-
+        <!-- /#page-wrapper --> 
+		</div>
     </div>
     
     <footer class="footer" >

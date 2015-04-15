@@ -376,66 +376,44 @@ function registerApp(){
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Register your application</h1>
+                    <div class="col-lg-12">                        
+                        <h2 class="page-header"><strong><em>Register your application</em></strong></h2>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                
-                <table cellpadding="5px">
-								<!--Body content-->
-								<tr></tr>
-								<tr>
-									<td><h5>Application Name</h5></td>
-									<td></td>
-									<td><div class="input-group">
-											<input type="text" id="name" class="required" placeholder="Application Name">
-										</div></td>
-								</tr>
-								<tr></tr>
-								<tr>
-									<td><h5>Publisher Name</h5></td>
-									<td></td>
-									<td><div class="input-group">
-											<input type="text" id="publisher" class="required" placeholder="Publsiher Name">
-										</div></td>
-								</tr>
-								<tr></tr>
-								<tr>
-									<td><h5>Application Description</h5></td>
-									<td></td>
-									<td><div class="input-group">
-											<input type="text" id="description" class="required" placeholder="Application Description">
-										</div></td>
-								</tr>
-								<tr></tr>
-								<tr>
-									<td><h5>Organization</h5></td>
-									<td></td>
-									<td><div class="input-group">
-											<input type="text" id="organization" class="required" placeholder="Organization">
-										</div></td>
-								</tr>
-								<tr></tr>
-								
-								<tr></tr>
-								
-								<tr></tr>
-								<tr>
-								<td></td>
-									<td></td>
-									<td><div class="col-sm-offset-2 col-sm-10">
-									<button id="registerApp" class="btn btn-primary" type="button" onclick="registerApp()">Register your Application</button>
-								</div></td>
-								</tr>
-							</table>
+                <form>
+					  <div class="form-group">
+					    <label for="Application Name">Application Name</label>
+					    <input type="text" class="form-control" id="name" placeholder="Application Name">
+					  </div>
+					  <div class="form-group">
+					    <label for="Publisher Name">Publisher Name</label>
+					    <input type="text" class="form-control" id="publisher" placeholder="Publisher Name">
+					  </div>
+					  <div class="form-group">
+					    <label for="Application Description">Application Description</label>
+					    <input type="text" class="form-control" id="description" placeholder="Application Description">
+					  </div>
+					  <div class="form-group">
+					    <label for="Organization">Organization</label>
+					    <input type="text" class="form-control" id="organization" placeholder="Organization">
+					  </div>
+					  <button id="registerApp" class="btn btn-primary" type="button" onclick="registerApp()">Register your Application</button>
+					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
+				</form>
+               
             </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
 
     </div>
+    <footer class="footer" >
+      <div class="container" style = "height:40px">
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+      </div>     
+    </footer>
     <!-- /#wrapper -->
 
     <!-- jQuery -->

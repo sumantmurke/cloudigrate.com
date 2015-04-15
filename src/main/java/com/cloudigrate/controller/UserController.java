@@ -50,7 +50,7 @@ public ModelAndView loginUser(
 	System.out.println("pwd" + password);
 	ModelAndView model = new ModelAndView();
 	UserFacade userFacade = new UserFacade();
-	if(email == "admin" && password == "password"){
+	if(email == "admin@gmail.com" && password == "password"){
 		System.out.println("inside admin");
 		model.setViewName("admindashboard");
 	}

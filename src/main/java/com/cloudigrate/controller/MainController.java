@@ -143,4 +143,11 @@ public class MainController {
 		System.out.println("inside getadminsettings");
 		return new ModelAndView("adminsettings");
 	}
+	
+	@RequestMapping(value="/getAdminprofile", method = RequestMethod.GET)
+	public ModelAndView getAdminprofile(){
+		
+		System.out.println("inside getadminprofile");
+		return new ModelAndView("adminprofile");
+	}
 }

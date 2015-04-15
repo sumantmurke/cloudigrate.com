@@ -95,8 +95,8 @@ function checkEmail(emailField){
                                     </label>
                                 </div> -->                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login" onclick="userLogin()">Login</button> -->
-                                <a  type="submit" class="btn btn-lg btn-success btn-block" onclick=" document.getElementById('mailajob').submit();">LogIn</a>
+                                <!-- <button type="submit" class="btn btn-primary" style= "margin-left:45px" id="login" onclick="userLogin()">LogIn</button> -->
+                                <a  type="submit" class="btn btn-lg btn-success btn-block" onclick=" document.getElementById('mailajob').submit();">Log In</a>
                                 <a href="getSignup" class="btn btn-lg btn-success btn-block" >Not a member? SignUp</a>
                             </fieldset>
                         </form>
@@ -105,7 +105,12 @@ function checkEmail(emailField){
             </div>
         </div>
     </div>
-
+	
+	<footer class="footer" >
+      <div class="container" style = "height:40px">
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+      </div>     
+    </footer>
     <!-- jQuery -->
     <script src="startbootstrap-sb-admin-2-1.0.5/bower_components/jquery/dist/jquery.min.js"></script>
 
