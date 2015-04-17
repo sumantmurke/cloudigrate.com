@@ -246,7 +246,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <form>
+                <form role="form" id="userprofile" method="post" action="userprofileupdate">
 					  <div class="form-group">
 					    <label for="First Name">First Name</label>
 					    <input type="text" class="form-control" id="firstname" value="${userdetail.getFirstName()}" autofocus>
@@ -257,15 +257,7 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="E-mail">E-mail</label>
-					    <input type="email" class="form-control" id="email" value="${userdetail.getEmail()}">
-					  </div>
-					  <div class="form-group">
-					    <label for="Password">Password</label>
-					    <input type="password" class="form-control" id="password" placeholder="Password">
-					  </div>
-					  <div class="form-group">
-					    <label for="ConfirmPassword">Confirm Password</label>
-					    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" value="" onChange="checkPasswordMatch();">
+					    <input type="email" class="form-control" id="email" value="${userdetail.getEmail()}" disabled>
 					  </div>
 					  <div class="form-group">
 					    <label for="Phone Number">Phone Number</label>
@@ -275,9 +267,8 @@
 					    <label for="Credit Card Number">Credit Card Number</label>
 					    <input type="text" class="form-control" id="creditcard" value="${userdetail.getCreditCard()}">
 					  </div>
-					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a>
-					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
-					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
+					  <a class="btn btn-lg btn-primary btn-block" onclick="updateprofile();">Update Profile</a>
+					  
 				</form>                        
             </div>
             <!-- /.container-fluid -->
@@ -304,7 +295,44 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="startbootstrap-sb-admin-2-1.0.5/dist/js/sb-admin-2.js"></script>
+    
+    <script type="text/javascript">
+    function updateprofile(){
+    	alert("inisde uploadprofile");
+    	var r = confirm("Do you really want to update ?");
+    	if (r == true) {
+    	   
+    	
+    	var firstname = $('#firstname').val();
+ 	   var lastname = $('#lastname').val();	
+ 	  var email = $('#email').val();	  
+ 	 var phonenumber = $('#phonenumber').val();	  
+ 	 var creditcard = $('#creditcard').val();	
+ 	alert(creditcard+" "+firstname+" "+lastname+" "+email+" "+phonenumber);
+ 	 
+ 	$.ajax({
+ 		url : "userprofileupdate",
+	    type: "POST",
+	    data : "email=" + email + "&phonenumber=" + phonenumber + "&lastname=" + lastname + "&firstname=" + firstname  + "&creditcard=" + creditcard,
+	   
+	    success:function(textStatus, jqXHR){
+	    	alert('success');
+	   		window.location.href="userprofilepage";
+	    },
+	    error: function(jqXHR, textStatus, errorThrown){
+	    	alert('Could not process request.. ' + errorThrown);
+	    //	window.location.href="getHome";
+	    }
+	});
+    	} else {
+    	  alert("you pressesd no");
+    	}
+ 	 
+    }
+    </script>
 
 </body>
+
+
 
 </html>

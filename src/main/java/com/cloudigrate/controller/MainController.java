@@ -12,13 +12,14 @@ import com.cloudigrate.facade.UserFacade;
 @Controller
 //@RequestMapping("/movie")
 public class MainController {
-
+/*
 	@RequestMapping(value="/{name}", method = RequestMethod.GET)
 	public String getMovie(@PathVariable String name, ModelMap model) {
 
 		model.addAttribute("movie", name);
 		return "list";
 	}
+	*/
 	
 	@RequestMapping(value="/getInstance", method = RequestMethod.GET)
 	public ModelAndView getInstance(){

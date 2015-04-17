@@ -145,7 +145,7 @@
                         <li><a href="userprofilepage"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>                        
                         <li class="divider"></li>
-                        <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

@@ -1,5 +1,7 @@
 package com.cloudigrate.facade;
 
+import java.sql.SQLException;
+
 import com.cloudigrate.dao.UserDao;
 import com.cloudigrate.domain.User;
 
@@ -27,5 +29,18 @@ public boolean loginCheckUser(String fname, String lname){
 public User getUserDetails(String userid) {
 	// TODO Auto-generated method stub
 	return userdao.getuserdetails(userid);
+}
+/**
+ * @param user 
+ * 
+ */
+public void updateUserProfile(User user) {
+	// TODO Auto-generated method stub
+	try {
+		userdao.updateUserProfile(user);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 }

@@ -1,7 +1,5 @@
 package com.cloudigrate.controller;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.FormParam;
@@ -32,16 +30,16 @@ public ModelAndView createUser(ModelMap model,
 		){
 	logger.info("inside signup page");
 	System.out.println("inside signup controller");
-	User u = new User();
-	u.setCreditCard(creditcard);
-	u.setFirstName(fname);
-	u.setLastName(lname);
-	u.setPassword(password);
-	u.setPhone(phonenumber);
-	u.setEmail(email);
-	u.setIsAdmin(0);
-	UserFacade uf = new UserFacade();
-	uf.createUser(u);
+	User user = new User();
+	user.setCreditCard(creditcard);
+	user.setFirstName(fname);
+	user.setLastName(lname);
+	user.setPassword(password);
+	user.setPhone(phonenumber);
+	user.setEmail(email);
+	user.setIsAdmin(0);
+	UserFacade userfacade = new UserFacade();
+	userfacade.createUser(user);
 	return new ModelAndView("index");
 	
 }
@@ -79,15 +77,7 @@ public ModelAndView loginUser(
 		}
 	}
 	
-/*	
-	System.out.println(" username inside login controler "+email + " password "+password);
-	UserFacade uf = new UserFacade();
-	boolean check = uf.loginCheckUser(email, password);
 
-	if(check == true){
-		return new ModelAndView("index");
-	}
-	*/
 	return model;
 }
 
@@ -100,20 +90,42 @@ public ModelAndView getProfile(HttpSession session, HttpServletRequest request )
 	String userid = (String) session.getAttribute("user");
 	System.out.println(" user currently loggied in:"+session.getAttribute("user"));
 	User user = userFacade.getUserDetails(userid);
-	
-	/*HashMap<String, String> userdetails = new HashMap<String, String>();
-	userdetails.put("firstname", user.getFirstName());
-	userdetails.put("lastname", user.getLastName());
-	userdetails.put("phone", user.getPhone());
-	userdetails.put("creditcard", user.getCreditCard());
-	userdetails.put("email", user.getEmail());
-	model.addAllAttributes(userdetails);
-	
-*/
+
 	model.addObject("userdetail",user);
 	model.setViewName("userprofile");
 	return model;
 }
+
+
+@RequestMapping(value="/userprofileupdate",method = RequestMethod.POST)
+public ModelAndView updateProfile( 
+		@FormParam("firstname") String firstname,
+		@FormParam("lastname") String lastname,
+		@FormParam("email") String email,
+		@FormParam("phonenumber") String phonenumber,
+		@FormParam("creditcard") String creditcard,
+		HttpSession session, HttpServletRequest request ){
+	System.out.println("inside update profile controler");
+	
+	System.out.println("email "+email);
+	
+	session = request.getSession();
+	User user = new User();
+	user.setCreditCard(creditcard);
+	user.setEmail(email);
+	user.setFirstName(firstname);
+	user.setLastName(lastname);
+	user.setPhone(phonenumber);
+	
+	userFacade.updateUserProfile(user);
+	
+	ModelAndView model = new ModelAndView();
+	model.setViewName("userprofile");
+	
+	System.out.println("after model set to home");
+	return model;
+}
+
 
 @RequestMapping(value="/logout",method = RequestMethod.GET)
 public ModelAndView logout(HttpServletRequest request, HttpSession session){

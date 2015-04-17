@@ -111,7 +111,7 @@ public boolean loginCheck(String username , String password){
 
 
 /**
- * @param userid 
+ * @param userdetails 
  * 
  */
 public User getuserdetails(String userid) {
@@ -155,6 +155,39 @@ public User getuserdetails(String userid) {
 	    }
 	return user;
 	 
+}
+
+
+
+
+/**
+ * @param userUpdateProfile 
+ * @throws SQLException 
+ * 
+ */
+public void updateUserProfile(User user) throws SQLException {
+	// TODO Auto-generated method stub
+	String query;
+	try {
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		Connection con = DriverManager.getConnection(connectionString, dbUsername, dbPassword);
+	    Statement stmt = (Statement) con.createStatement();
+	    query = "UPDATE users SET firstName= '"+user.getFirstName() +"', lastName='"+ user.getLastName()+"', phone='"+ user.getPhone()+"', creditCard='"+user.getCreditCard() +"' WHERE email= '"+ user.getEmail()+"';";
+	    System.out.println("email: "+user.getEmail());
+        stmt.executeUpdate(query);
+	    
+        con.close();
+	} catch (InstantiationException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IllegalAccessException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    
 }
 	
 	
