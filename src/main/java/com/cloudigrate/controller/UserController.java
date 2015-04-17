@@ -92,9 +92,9 @@ public ModelAndView loginUser(
 }
 
 	
-@RequestMapping(value="/userprofile",method = RequestMethod.GET)
+@RequestMapping(value="/userprofilepage",method = RequestMethod.GET)
 public ModelAndView getProfile(HttpSession session, HttpServletRequest request ){
-	
+	System.out.println("inside userprofile controller");
 	ModelAndView model = new ModelAndView();
 	session = request.getSession();
 	String userid = (String) session.getAttribute("user");

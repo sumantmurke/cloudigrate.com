@@ -249,15 +249,15 @@
                 <form>
 					  <div class="form-group">
 					    <label for="First Name">First Name</label>
-					    <input type="text" class="form-control" id="firstname" placeholder="First Name" autofocus>
+					    <input type="text" class="form-control" id="firstname" value="${userdetail.getFirstName()}" autofocus>
 					  </div>
 					  <div class="form-group">
 					    <label for="Last Name">Last Name</label>
-					    <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+					    <input type="text" class="form-control" id="lastname" value="${userdetail.getLastName()}">
 					  </div>
 					  <div class="form-group">
 					    <label for="E-mail">E-mail</label>
-					    <input type="email" class="form-control" id="email" placeholder="E-mail">
+					    <input type="email" class="form-control" id="email" value="${userdetail.getEmail()}">
 					  </div>
 					  <div class="form-group">
 					    <label for="Password">Password</label>
@@ -269,11 +269,11 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="Phone Number">Phone Number</label>
-					    <input type="text" class="form-control" id="phonenumber" placeholder="Phone Number">
+					    <input type="text" class="form-control" id="phonenumber" value="${userdetail.getPhone()}">
 					  </div>
 					  <div class="form-group">
 					    <label for="Credit Card Number">Credit Card Number</label>
-					    <input type="text" class="form-control" id="creditcard" placeholder="Credit Card Number">
+					    <input type="text" class="form-control" id="creditcard" value="${userdetail.getCreditCard()}">
 					  </div>
 					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a>
 					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
