@@ -36,6 +36,180 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
+
+<style>
+#piechartdiv {		
+	width		: 100%;
+	height		: 435px;
+	font-size	: 11px;
+}		
+
+#ratechartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}	
+
+#chartdiv {	
+	width	: 100%;
+	height	: 500px;
+}
+</style>
+
+<script type="text/javascript">
+var data = '${serviceCostData}';
+var obj = JSON.parse(data);
+alert(data);
+var chart = AmCharts.makeChart( "piechartdiv", {
+	  "type": "pie",
+	  "theme": "light",
+	  "titles": [ {
+	    "text": "Cloud Service cost breakdown",
+	    "size": 16
+	  } ],
+	  "dataProvider": [{"productName":"Compute Service","cost":9.079999999999998},{"productName":"Storage Service","cost":0.050177990000000006},{"productName":"NoSQL Service","cost":0.0},{"productName":"SQL Service","cost":21.806787750000034}],
+	  "valueField": "cost",
+	  "titleField": "productName",
+	  "startEffect": "elastic",
+	  "startDuration": 2,
+	  "labelRadius": 15,
+	  "innerRadius": "50%",
+	  "depth3D": 10,
+	  "balloonText": "[[productName]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+	  "angle": 15,
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+	
+/* var chart = AmCharts.makeChart( "piechartdiv", {
+	  "type": "pie",
+	  "theme": "light",
+	  "dataProvider": obj,
+	  "titleField": "productName",
+	  "valueField": "cost",
+	  "labelRadius": 5,
+
+	  "radius": "42%",
+	  "innerRadius": "60%",
+	  "labelText": "[[productName]]",
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} ); */
+</script>
+
+<script>
+var data = '${serviceRateData}';
+var rateData = JSON.parse(data);
+alert(data);
+
+var chart = AmCharts.makeChart( "ratechartdiv", {
+	  "type": "serial",
+	  "theme": "light",
+	  "dataProvider": rateData,
+	  "valueAxes": [ {
+	    "gridColor": "#FFFFFF",
+	    "gridAlpha": 0.2,
+	    "dashLength": 0
+	  } ],
+	  "gridAboveGraphs": true,
+	  "startDuration": 1,
+	  "graphs": [ {
+	             "balloonText": "Rate for [[operation]]:</b>[[rate]]</b>",
+	    "fillAlphas": 0.8,
+	    "lineAlpha": 0.2,
+	    "type": "column",
+	    "valueField": "rate"
+	  } ],
+	  "chartCursor": {
+	    "categoryBalloonEnabled": false,
+	    "cursorAlpha": 0,
+	    "zoomable": false
+	  },
+	  "categoryField": "productName",
+	  "categoryAxis": {
+	    "gridPosition": "start",
+	    "gridAlpha": 0,
+	    "tickPosition": "start",
+	    "tickLength": 20
+	  },
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+
+	} ); 
+</script>
+
+<script>
+var data = '${totalCloudUsageCost}';
+var gaugeChart = AmCharts.makeChart( "chartdiv", {
+	  "type": "gauge",
+	  "theme": "light",
+	  "axes": [ {
+	    "axisThickness": 1,
+	    "axisAlpha": 0.2,
+	    "tickAlpha": 0.2,
+	    "valueInterval": 20,
+	    "bands": [ {
+	      "color": "#84b761",
+	      "endValue": 120,
+	      "startValue": 0
+	    }, {
+	      "color": "#fdd400",
+	      "endValue": 170,
+	      "startValue": 120
+	    }, {
+	      "color": "#cc4748",
+	      "endValue": 220,
+	      "innerRadius": "95%",
+	      "startValue": 170
+	    } ],
+	    "bottomText": "$ 0.0",
+	    "bottomTextYOffset": -20,
+	    "endValue": 220
+	  } ],
+	  "arrows": [ {} ],
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+
+	setInterval( randomValue, 2000 );
+
+	// set random value
+	function randomValue() {
+	  var value = data;
+	  if ( gaugeChart ) {
+	    if ( gaugeChart.arrows ) {
+	      if ( gaugeChart.arrows[ 0 ] ) {
+	        if ( gaugeChart.arrows[ 0 ].setValue ) {
+	          gaugeChart.arrows[ 0 ].setValue( value );
+	          gaugeChart.axes[ 0 ].setBottomText( "$ " +value );
+	        }
+	      }
+	    }
+	  }
+	}
+</script>
 </head>
 
 <body>
@@ -242,107 +416,117 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                	<h2 class="page-header"><strong><em>Flot</em></strong></h2>                    
+                	<h2 class="page-header"><strong><em>Cloud Billing Analytics</em></strong></h2>                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
+            
+             <!-- /.col-lg-12 -->
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Line Chart Example
+                            Cost chart by cloud service
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-line-chart"></div>
-                            </div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Pie Chart Example
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
+                         <!-- <div id="piechartdiv"></div> -->
+                       	<div id="piechartdiv"></div>
+
+                        <!-- <div class="panel-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-pie-chart"></div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Multiple Axes Line Chart Example
+                            Current total cloud bill
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div id="chartdiv"></div>	
+                        <!-- <div class="panel-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-line-chart-multi"></div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
+            
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Rate chart by cloud service
+                        </div>
+                        <!-- /.panel-heading -->
+                       <div id="ratechartdiv"></div>
+                        <!-- <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart"></div>
+                            </div>
+                        </div> -->
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+               
+                
                 <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Moving Line Chart Example
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-line-chart-moving"></div>
                             </div>
                         </div>
-                        <!-- /.panel-body -->
+                        /.panel-body
                     </div>
-                    <!-- /.panel -->
-                </div>
+                    /.panel
+                </div> -->
                 <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Bar Chart Example
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-bar-chart"></div>
                             </div>
                         </div>
-                        <!-- /.panel-body -->
+                        /.panel-body
                     </div>
-                    <!-- /.panel -->
-                </div>
+                    /.panel
+                </div> -->
                 <!-- /.col-lg-6 -->
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Flot Charts Usage
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <p>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks, and interactive features. In SB Admin, we are using the most recent version of Flot along with a few plugins to enhance the user experience. The Flot plugins being used are the tooltip plugin for hoverable tooltips, and the resize plugin for fully responsive charts. The documentation for Flot Charts is available on their website, <a target="_blank" href="http://www.flotcharts.org/">http://www.flotcharts.org/</a>.</p>
                             <a target="_blank" class="btn btn-default btn-lg btn-block" href="http://www.flotcharts.org/">View Flot Charts Documentation</a>
                         </div>
-                        <!-- /.panel-body -->
+                        /.panel-body
                     </div>
-                    <!-- /.panel -->
-                </div>
+                    /.panel
+                </div> -->
                 <!-- /.col-lg-6 -->
+                
             </div>
             <!-- /.row -->
         </div>

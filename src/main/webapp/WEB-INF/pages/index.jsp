@@ -224,7 +224,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="getFlotchart">Flot Charts</a>
+                                    <a href="dashboard">Flot Charts</a>
                                 </li>
                                 <li>
                                     <a href="getMorrischart">Morris.js Charts</a>
