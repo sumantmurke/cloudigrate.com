@@ -30,6 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body>
@@ -177,18 +178,17 @@
 
 <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style= "width:500px">
                 <div class="row">
                     <div class="col-lg-12">
-                    	<h2 class="page-header"><strong><em>Admin Settings</em></strong></h2>                        
+                    	<h2 class="page-header" style = "text-align: center"><strong><em>Admin Settings</em></strong></h2>                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <form>
-                	<table style="width:100%">
-                		<tr>
-                		<div class="form-group">
+                <form>                	                
+                	<table class="table table-striped">
+                		<tr>                		
 					  		<td>					  	
 					    	<label for="First Name">Instance </label>
 					    	</td>
@@ -203,16 +203,10 @@
 						  		</ul>					  
 							</div>
 							</td>
-					 	</div>
-					 	</tr>
-					 						 	
-					 	<tr>
-					 		<td>   </td>
-    						<td>   </td>
-					 	</tr>
+					 	<!-- </div>  -->
+					 	</tr>					 
 					 	
-					 	<tr>
-                		<div class="form-group">
+					 	<tr>                		
 					  		<td>					  	
 					    	<label for="First Name">SQL </label>
 					    	</td>
@@ -226,12 +220,10 @@
 							    <li><a href="#">Google Cloud Platform</a></li>					    
 						  		</ul>					  
 							</div>
-							</td>
-					 	</div>
+							</td>					 	
 					 	</tr>
 					 	
-					 	<tr>
-                		<div class="form-group">
+					 	<tr>                		
 					  		<td>					  	
 					    	<label for="First Name">NoSQL </label>
 					    	</td>
@@ -245,12 +237,10 @@
 							    <li><a href="#">Google Cloud Platform</a></li>					    
 						  		</ul>					  
 							</div>
-							</td>
-					 	</div>
+							</td>					 	
 					 	</tr>
 					 	
-					 	<tr>
-                		<div class="form-group">
+					 	<tr>                		
 					  		<td>					  	
 					    	<label for="First Name">Storage </label>
 					    	</td>
@@ -264,14 +254,12 @@
 							    <li><a href="#">Google Cloud Platform</a></li>					    
 						  		</ul>					  
 							</div>
-							</td>
-					 	</div>
-					 	</tr>
-					 	
-					  </table>
-					  
-					  
-					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Apply Changes</a>
+							</td>					 	
+					 	</tr>					 	
+					  </table>		
+					  			  
+					  <a class="btn btn-primary center-block" type="button" onclick="uploadFormData()">Apply Changes</a>					  
+					  <!-- <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Apply Changes</a>  -->					  
 					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
 					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
 				</form>                        

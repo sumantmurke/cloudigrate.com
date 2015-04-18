@@ -269,10 +269,10 @@ function editApp(){
 
         <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style= "width:500px">
                 <div class="row">
                     <div class="col-lg-12">
-                    	<h2 class="page-header"><strong><em>Edit your Application</em></strong></h2>                        
+                    	<h2 class="page-header" style = "text-align: center"><strong><em>Edit your Application</em></strong></h2>                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -298,7 +298,9 @@ function editApp(){
 					    <label for="Organization">Organization</label>
 					    <input type="text" class="form-control" id="organization" placeholder="Organization">
 					  </div>
-					  <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button>
+					  
+					  <a class="btn btn-primary center-block" id="editApp" type="button" onclick="editApp()">Update your Application</a>
+					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button>  -->
 					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
 				</form>
                 

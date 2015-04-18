@@ -179,10 +179,10 @@
 
 		<!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style= "width:500px">
                 <div class="row">
                     <div class="col-lg-12">
-                    	<h2 class="page-header"><strong><em>Admin Profile</em></strong></h2>                        
+                    	<h2 class="page-header" style = "text-align: center"><strong><em>Admin Profile</em></strong></h2>                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -216,7 +216,8 @@
 					    <label for="Credit Card Number">Credit Card Number</label>
 					    <input type="text" class="form-control" id="creditcard" placeholder="Credit Card Number">
 					  </div>
-					  <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a>
+					  <a class="btn btn-primary center-block" type="button" onclick="uploadFormData()">Update Profile</a>					  					  
+					  <!-- <a class="btn btn-lg btn-primary btn-block" onclick="uploadFormData()">Update Profile</a> -->					  
 					  <!-- <button id="editApp" class="btn btn-primary" type="button" onclick="editApp()">Update your Application</button> -->
 					  <!-- <button type="submit" class="btn btn-default">Submit</button>  -->
 				</form>                        

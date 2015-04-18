@@ -233,15 +233,12 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-
-
-
 		<!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
+        	<div class="container-fluid" style= "width:500px">            
                 <div class="row">
                     <div class="col-lg-12">                        
-                        <h2 class="page-header"><strong><em>CloudIgrate - User Profile</em></strong></h2>
+                        <h2 class="page-header" style = "text-align: center"><strong><em>CloudIgrate - User Profile</em></strong></h2>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -267,8 +264,8 @@
 					    <label for="Credit Card Number">Credit Card Number</label>
 					    <input type="text" class="form-control" id="creditcard" value="${userdetail.getCreditCard()}">
 					  </div>
-					  <a class="btn btn-lg btn-primary btn-block" onclick="updateprofile();">Update Profile</a>
-					  
+					  <a class="btn btn-primary center-block" type="button" onclick="updateprofile()">Update Profile</a>
+					  <!--  <a class="btn btn-primary" style = "margin:10px; text-align: center" type="button" onclick="updateprofile()">Update Profile</a>  -->
 				</form>                        
             </div>
             <!-- /.container-fluid -->
