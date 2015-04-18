@@ -241,8 +241,8 @@
 													<td>${application.name}</td>
 													<td>${application.publisher}</td>
 													<td>${application.description}</td>
-													<td>${application.organization}</td>
-													<td><input type="button" value="Show key"></td>
+													<td>${application.organization}</td>													
+													<td><input class="btn btn-primary center-block" type="button" value="Show key"></td>
 												</tr>
 											 </c:forEach> 
 											</tbody>
@@ -257,7 +257,7 @@
 	
 	<footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> ������ 2014 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
 	<!-- /#wrapper -->

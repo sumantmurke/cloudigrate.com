@@ -536,7 +536,7 @@ var gaugeChart = AmCharts.makeChart( "chartdiv", {
     
     <footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
     <!-- /#wrapper -->

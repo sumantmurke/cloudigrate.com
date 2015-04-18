@@ -30,7 +30,42 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
+<script type="text/javascript">	
+function uploadFormData(){	
+if (document.getElementById('Instance_aws').checked) {
+	 var instance_value = document.getElementById('Instance_aws').value;
+	 alert(instance_value);
+	}    
+if (document.getElementById('Instance_google').checked) {
+	 var instance_value = document.getElementById('Instance_google').value;
+	 alert(instance_value);
+	} 
+if (document.getElementById('SQL_aws').checked) {
+	 var sql_value = document.getElementById('SQL_aws').value;
+	 alert(sql_value);
+	}    
+if (document.getElementById('SQL_google').checked) {
+	 var sql_value = document.getElementById('SQL_google').value;	 
+	 alert(sql_value);
+	}
+if (document.getElementById('NoSQL_aws').checked) {
+	 var nosql_value = document.getElementById('NoSQL_aws').value;
+	 alert(nosql_value);
+	}    
+if (document.getElementById('NoSQL_google').checked) {
+	 var nosql_value = document.getElementById('NoSQL_google').value;
+	 alert(nosql_value);
+	}
+if (document.getElementById('Storage_aws').checked) {
+	 var storage_value = document.getElementById('Storage_aws').value;
+	 alert(storage_value);
+	}    
+if (document.getElementById('Storage_google').checked) {
+	 var storage_value = document.getElementById('Storage_google').value;
+	 alert(storage_value);
+	} 
+}
+</script>
 </head>
 
 <body>
@@ -178,56 +213,101 @@
 
 <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid" style= "width:500px">
+            <div class="container-fluid" style= "width:600px">
                 <div class="row">
                     <div class="col-lg-12">
                     	<h2 class="page-header" style = "text-align: center"><strong><em>Admin Settings</em></strong></h2>                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
+                <!-- /.row -->                
                 <form>                	                
                 	<table class="table table-striped">
                 		<tr>                		
 					  		<td>					  	
-					    	<label for="First Name">Instance </label>
+					    	<label style= "margin: 25px" for="First Name">Instance</label>
 					    	</td>
-					    	<td>
-					    	<div class="btn-group">
-						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						    	Choose the Cloud Vendor <span class="caret"></span>
-						  		</button>
-						  		<ul class="dropdown-menu" role="menu">
-							    <li><a href="#">Amazon Web Services</a></li>
-							    <li><a href="#">Google Cloud Platform</a></li>					    
-						  		</ul>					  
+					    	<td>					    	
+					    	<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios1" id="Instance_aws" value="Instance_aws" checked>
+							    Amazon Web Services
+							  </label>
 							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios1" id="Instance_google" value="Instance_google">
+							    Google Cloud Platform
+							  </label>
+							</div>												    	
+					    	<!-- 
+					    	<select>
+							  <option value="Amazon Web Services">Amazon Web Services</option>
+							  <option value="Google Cloud Platform">Google Cloud Platform</option>							  
+							</select>	
+							 -->				    						    						    						    				    						    						    	 					    							 							 							 
 							</td>
 					 	<!-- </div>  -->
 					 	</tr>					 
 					 	
 					 	<tr>                		
 					  		<td>					  	
-					    	<label for="First Name">SQL </label>
+					    	<label style= "margin: 25px" for="First Name">SQL </label>
+					    	</td>
+					    	<td>					    						  						    					    	
+					    	<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios2" id="SQL_aws" value="SQL_aws" checked>
+							    Amazon Web Services
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios2" id="SQL_google" value="SQL_google">
+							    Google Cloud Platform
+							  </label>
+							</div>
+							</td>							 												 
+					 	</tr>
+					 	
+					 	<tr>                		
+					  		<td>					  	
+					    	<label style= "margin: 25px" for="First Name">NoSQL </label>
 					    	</td>
 					    	<td>
-					    	<div class="btn-group">
-						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style = "color:">
-						    	Choose the Cloud Vendor <span class="caret"></span>
-						  		</button>
-						  		<ul class="dropdown-menu" role="menu">
-							    <li><a href="#">Amazon Web Services</a></li>
-							    <li><a href="#">Google Cloud Platform</a></li>					    
-						  		</ul>					  
+					    	<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios3" id="NoSQL_aws" value="NoSQL_aws" checked>
+							    Amazon Web Services
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios3" id="NoSQL_google" value="NoSQL_google">
+							    Google Cloud Platform
+							  </label>
 							</div>
 							</td>					 	
 					 	</tr>
 					 	
 					 	<tr>                		
 					  		<td>					  	
-					    	<label for="First Name">NoSQL </label>
+					    	<label style= "margin: 25px" for="First Name">Storage </label>
 					    	</td>
 					    	<td>
+					    	<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios4" id="Storage_aws" value="Storage_aws" checked>
+							    Amazon Web Services
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios4" id="Storage_google" value="Storage_google">
+							    Google Cloud Platform
+							  </label>
+							</div>
+					    	<!-- 
 					    	<div class="btn-group">
 						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style = "color:">
 						    	Choose the Cloud Vendor <span class="caret"></span>
@@ -237,23 +317,7 @@
 							    <li><a href="#">Google Cloud Platform</a></li>					    
 						  		</ul>					  
 							</div>
-							</td>					 	
-					 	</tr>
-					 	
-					 	<tr>                		
-					  		<td>					  	
-					    	<label for="First Name">Storage </label>
-					    	</td>
-					    	<td>
-					    	<div class="btn-group">
-						  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style = "color:">
-						    	Choose the Cloud Vendor <span class="caret"></span>
-						  		</button>
-						  		<ul class="dropdown-menu" role="menu">
-							    <li><a href="#">Amazon Web Services</a></li>
-							    <li><a href="#">Google Cloud Platform</a></li>					    
-						  		</ul>					  
-							</div>
+							 -->
 							</td>					 	
 					 	</tr>					 	
 					  </table>		
@@ -271,7 +335,7 @@
     
     <footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
     <!-- /#wrapper -->

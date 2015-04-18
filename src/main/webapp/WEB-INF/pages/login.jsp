@@ -73,7 +73,7 @@ function checkEmail(emailField){
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style= "height: 770px">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
@@ -109,7 +109,7 @@ function checkEmail(emailField){
 	
 	<footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> © 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
     <!-- jQuery -->
