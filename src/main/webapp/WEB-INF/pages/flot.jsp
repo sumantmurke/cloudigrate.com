@@ -398,7 +398,7 @@ var gaugeChart = AmCharts.makeChart( "chartdiv", {
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="getBillingChart">Flot Charts</a>
+                                    <a href="getBillingChart">Billing Analytics</a>
                                 </li>
                                 <li>
                                     <a href="getMorrischart">Morris.js Charts</a>
