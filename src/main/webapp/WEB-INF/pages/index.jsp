@@ -568,6 +568,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 					</div>
 					<!-- /.panel -->
 					<!-- <div class="panel panel-default">
+
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">
@@ -939,7 +940,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 
 	<footer class="footer">
 		<div class="container" style="height: 40px">
-			<p class="text-muted" style="margin: 10px; text-align: right">©
+			<p class="text-muted" style="margin: 10px; text-align: right">ï¿½
 				2014 CloudIgrate Inc. All Rights Reserved.</p>
 		</div>
 	</footer>
