@@ -201,7 +201,7 @@
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="getFlotchart">Flot Charts</a></li>
+								<li><a href="getBillingChart">Flot Charts</a></li>
 								<li><a href="getMorrischart">Morris.js Charts</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 					</ul>
@@ -257,7 +257,7 @@
 	
 	<footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> © 2014 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> �� 2014 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
 	<!-- /#wrapper -->
