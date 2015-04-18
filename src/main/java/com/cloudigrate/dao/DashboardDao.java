@@ -19,4 +19,13 @@ public class DashboardDao {
 		
 		return res;
 	}
+	
+	public String getStoragePerformanceChartData() {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String result = restTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/service/storage", String.class);
+		System.out.println("Storage result: "+result);
+		
+		return result;
+	}
 }

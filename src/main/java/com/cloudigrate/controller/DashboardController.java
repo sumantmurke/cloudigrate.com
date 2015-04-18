@@ -36,4 +36,20 @@ public class DashboardController {
 		
 		return model;
 	}
+	
+	@RequestMapping(value="/getPerformanceChart", method = RequestMethod.GET)
+	public ModelAndView getPerformanceChartData(){
+		
+		System.out.println("inside dashboard controller - performance");
+		//Application application = applicationFacade.getApplication(Integer.parseInt(applicationId));
+		String storagePerformanceData = dashboardFacade.getStoragePerformanceChartData();
+		System.out.println("Controller: "+storagePerformanceData);
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("morris");
+		model.addObject("storagePerformanceData", storagePerformanceData);
+		
+		return model;
+	}
+	
 }

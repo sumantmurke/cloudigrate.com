@@ -75,12 +75,12 @@ public class MainController {
 		return new ModelAndView("registerapp");
 	}
 	
-	@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
+	/*@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
 	public ModelAndView getViewapp(){
 		
 		System.out.println("inside getviewapp");
 		return new ModelAndView("viewapp");
-	}
+	}*/
 	
 	@RequestMapping(value="/getEditapp", method = RequestMethod.GET)
 	public ModelAndView getEditapp(){

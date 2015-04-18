@@ -67,14 +67,14 @@ public class ApplicationController {
 		return new ModelAndView("viewapp");
 	}
 	
-/*	@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
+	@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
 	public ModelAndView getViewapp(){
 		
 		String userId = "1"; // This will be taken from Session
 		System.out.println("inside getviewapp");
 		ArrayList<Application> allApplications = applicationFacade.getAllApplications(Integer.parseInt(userId));
 		return new ModelAndView("viewapp", "allApplications", allApplications);
-	}*/
+	}
 	
 //	@RequestMapping(value="/allApplication/{userId}", method = RequestMethod.GET)
 //	public ModelAndView getAllApplication(ModelMap model,

@@ -11,4 +11,8 @@ public class DashboardFacade {
 		return dashboardDao.getBillingDashboardData();
 		
 	}
+	
+	public String getStoragePerformanceChartData() {
+		return dashboardDao.getStoragePerformanceChartData();
+	}
 }
