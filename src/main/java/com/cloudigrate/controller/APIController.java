@@ -28,10 +28,16 @@ public class APIController {
 
 		ModelAndView model = new ModelAndView();
 		System.out.println(" before storage controller");
-		JSONObject storageapi = apicontrollerfacade.getStorageAPI();
+		JSONObject createbucket = apicontrollerfacade.getStorageAPICreateBucket();
+		JSONObject deletebucket = apicontrollerfacade.getStorageAPIDeleteobject();
+		JSONObject downloadbucket = apicontrollerfacade.getStorageAPIDownloadobject();
+		JSONObject uploadbucket = apicontrollerfacade.getStorageAPIUploadobject();
 		System.out.println("inside api storage cntroller");
 		model.setViewName("storage");
-		model.addObject("StorageAPI", storageapi);
+		model.addObject("StorageAPI", createbucket);
+		model.addObject("deletebucket", deletebucket);
+		model.addObject("downloadbucket", downloadbucket);
+		model.addObject("uploadbucket", uploadbucket);
 		System.out.println("after model storage api");
 		return model;
 	}

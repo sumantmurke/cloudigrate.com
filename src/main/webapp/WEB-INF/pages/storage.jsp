@@ -210,10 +210,11 @@
 							<strong><em>Storage</em></strong>
 						</h2>
 					</div>
-					<h4>Create Bucket:</h4>
+	<!-- Start for create bucket -->				
+					<h4>1. Create Bucket:</h4>
 
 					<!-- /.col-lg-12 -->
-				</div>
+			<!--  	</div> -->
 
 				<!-- /.row -->
 			</div>
@@ -262,6 +263,155 @@
 			</table>
 			</div>
 			<hr>
+<!--  End for create bucket -->	
+
+<!-- Delete Bucket -->		
+			<h4>2. Delete Bucket:</h4>
+			<h5>Method:</h5>
+			<code id="typeofmethod2"></code>
+			<br>
+			<br>
+			<div class="row" >
+			<h5 style="margin: 15px">Endpoint:</h5>
+				<code id="url2"
+					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+			</div>
+		
+			<br>
+			<!-- Request Table -->
+			<div class="row">
+			<h5 style="margin: 15px">Request Parameters:</h5>
+			<table id= "request2" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			</table>
+			</div>
+			<!-- Response Table -->
+		<br>
+			<div class="row">
+			<h5 style="margin: 15px">Response Parameters:</h5>
+			<table id= "response2" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			
+			</table>
+			</div>
+			<hr>
+			
+<!-- Delete bucket end -->	
+
+<!-- Download Bucket -->		
+			<h4>3. Download Bucket:</h4>
+			<h5>Method:</h5>
+			<code id="typeofmethod3"></code>
+			<br>
+			<br>
+			<div class="row" >
+			<h5 style="margin: 15px">Endpoint:</h5>
+				<code id="url3"
+					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+			</div>
+		
+			<br>
+			<!-- Request Table -->
+			<div class="row">
+			<h5 style="margin: 15px">Request Parameters:</h5>
+			<table id= "request3" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			</table>
+			</div>
+			<!-- Response Table -->
+		<br>
+			<div class="row">
+			<h5 style="margin: 15px">Response Parameters:</h5>
+			<table id= "response3" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			
+			</table>
+			</div>
+			<hr>
+			
+<!-- Download bucket end -->	
+
+<!-- Upload Bucket -->		
+			<h4>4. Upload Bucket:</h4>
+			<h5>Method:</h5>
+			<code id="typeofmethod4"></code>
+			<br>
+			<br>
+			<div class="row" >
+			<h5 style="margin: 15px">Endpoint:</h5>
+				<code id="url4"
+					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+			</div>
+		
+			<br>
+			<!-- Request Table -->
+			<div class="row">
+			<h5 style="margin: 15px">Request Parameters:</h5>
+			<table id= "request4" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			</table>
+			</div>
+			<!-- Response Table -->
+		<br>
+			<div class="row">
+			<h5 style="margin: 15px">Response Parameters:</h5>
+			<table id= "response4" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			
+			</table>
+			</div>
+			<hr>
+			
+<!-- Upload bucket end -->
+		
 			<!-- /.container-fluid -->
 		</div>
 
@@ -295,7 +445,9 @@
 </body>
 <script type="text/javascript">
 function foo(){
-	
+	/*
+		create bucket
+	*/
 	var jsonobj = '${StorageAPI}';
 	var obj = jQuery.parseJSON(jsonobj);
 	var details = jsonobj.Details;
@@ -310,7 +462,7 @@ function foo(){
      for(var i = 0; i < obj.RequestAttributes.length; i++ ){
        tabledata = "";
        tabledata += "<tr>";
-       tabledata += "<td>" + obj.RequestAttributes[i].name + "</td>";
+       tabledata += "<td>" + obj.RequestAttributes[i].name + "<br><small> Required field: "+ obj.RequestAttributes[i].compulsory+"</small></td>";
        tabledata += "<td>" + obj.RequestAttributes[i].dataType + "</td>";
        tabledata += "<td>" + obj.RequestAttributes[i].description + "</td>";
        tabledata += "</tr>";
@@ -322,12 +474,120 @@ function foo(){
      for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
          tabledata1 = "";
          tabledata1 += "<tr>";
-         tabledata1 += "<td>" + obj.ResponseAttributes[j].name + "</td>";
+         tabledata1 += "<td>" + obj.ResponseAttributes[j].name +"<br><small> Required field: "+ obj.ResponseAttributes[j].compulsory+"</small></td>";
          tabledata1 += "<td>" + obj.ResponseAttributes[j].dataType + "</td>";
          tabledata1 += "<td>" + obj.ResponseAttributes[j].description + "</td>";
          tabledata1 += "</tr>";
          $tbody1.append(tabledata1);
        }
+     
+     /*
+     Delete object
+     */
+     var deletebucket = '${deletebucket}';
+ 	var objdeletebucket = jQuery.parseJSON(deletebucket);
+ 	//var details = jsonobj.Details;
+ 	alert(objdeletebucket.RequestAttributes[0].name);
+ 	var methoddeletebucket = objdeletebucket.Method;
+ 	var typeofmethoddeletebucket = methoddeletebucket.split(":");
+ 	 document.getElementById('typeofmethod2').innerHTML= typeofmethoddeletebucket[0];
+ 	 //document.getElementById('url').innerHTML = obj.Endpoint;
+ 	 
+ 	 var $tbody = $("#request2 tbody");
+ 	 var tabledata = "";
+      for(var i = 0; i < objdeletebucket.RequestAttributes.length; i++ ){
+        tabledata = "";
+        tabledata += "<tr>";
+        tabledata += "<td>" + objdeletebucket.RequestAttributes[i].name + "<br><small> Required field: "+ objdeletebucket.RequestAttributes[i].compulsory+"</small></td>";
+        tabledata += "<td>" + objdeletebucket.RequestAttributes[i].dataType + "</td>";
+        tabledata += "<td>" + objdeletebucket.RequestAttributes[i].description + "</td>";
+        tabledata += "</tr>";
+        $tbody.append(tabledata);
+      }
+      
+      var $tbody1 = $("#response2 tbody");
+      var tabledata1 = "";
+      for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
+          tabledata1 = "";
+          tabledata1 += "<tr>";
+          tabledata1 += "<td>" + objdeletebucket.ResponseAttributes[j].name +"<br><small> Required field: "+ objdeletebucket.ResponseAttributes[j].compulsory+"</small></td>";
+          tabledata1 += "<td>" + objdeletebucket.ResponseAttributes[j].dataType + "</td>";
+          tabledata1 += "<td>" + objdeletebucket.ResponseAttributes[j].description + "</td>";
+          tabledata1 += "</tr>";
+          $tbody1.append(tabledata1);
+        }
+     
+     /*
+     Download object
+     */
+     
+      var downloadbucket = '${downloadbucket}';
+   	var objdownloadbucket = jQuery.parseJSON(downloadbucket);
+   	//var details = jsonobj.Details;
+   	alert(objdownloadbucket.RequestAttributes[0].name);
+   	var methoddownloadbucket = objdownloadbucket.Method;
+   	var typeofmethoddownloadbucket = methoddownloadbucket.split(":");
+   	 document.getElementById('typeofmethod3').innerHTML= typeofmethoddownloadbucket[0];
+   	 //document.getElementById('url').innerHTML = obj.Endpoint;
+   	 
+   	 var $tbody = $("#request3 tbody");
+   	 var tabledata = "";
+        for(var i = 0; i < objdeletebucket.RequestAttributes.length; i++ ){
+          tabledata = "";
+          tabledata += "<tr>";
+          tabledata += "<td>" + objdownloadbucket.RequestAttributes[i].name + "<br><small> Required field: "+ objdownloadbucket.RequestAttributes[i].compulsory+"</small></td>";
+          tabledata += "<td>" + objdownloadbucket.RequestAttributes[i].dataType + "</td>";
+          tabledata += "<td>" + objdownloadbucket.RequestAttributes[i].description + "</td>";
+          tabledata += "</tr>";
+          $tbody.append(tabledata);
+        }
+        
+        var $tbody1 = $("#response3 tbody");
+        var tabledata1 = "";
+        for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
+            tabledata1 = "";
+            tabledata1 += "<tr>";
+            tabledata1 += "<td>" + objdownloadbucket.ResponseAttributes[j].name +"<br><small> Required field: "+ objdownloadbucket.ResponseAttributes[j].compulsory+"</small></td>";
+            tabledata1 += "<td>" + objdownloadbucket.ResponseAttributes[j].dataType + "</td>";
+            tabledata1 += "<td>" + objdownloadbucket.ResponseAttributes[j].description + "</td>";
+            tabledata1 += "</tr>";
+            $tbody1.append(tabledata1);
+          }
+     /*
+     Upload object
+     */
+        var uploadbucket = '${uploadbucket}';
+       	var objuploadbucket = jQuery.parseJSON(uploadbucket);
+       	//var details = jsonobj.Details;
+       	alert(objuploadbucket.RequestAttributes[0].name);
+       	var methoduploadbucket = objuploadbucket.Method;
+       	var typeofmethoddownloadbucket = methoduploadbucket.split(":");
+       	 document.getElementById('typeofmethod4').innerHTML= typeofmethoddownloadbucket[0];
+       	 //document.getElementById('url').innerHTML = obj.Endpoint;
+       	 
+       	 var $tbody = $("#request4 tbody");
+       	 var tabledata = "";
+            for(var i = 0; i < objdeletebucket.RequestAttributes.length; i++ ){
+              tabledata = "";
+              tabledata += "<tr>";
+              tabledata += "<td>" + objuploadbucket.RequestAttributes[i].name + "<br><small> Required field: "+ objuploadbucket.RequestAttributes[i].compulsory+"</small></td>";
+              tabledata += "<td>" + objuploadbucket.RequestAttributes[i].dataType + "</td>";
+              tabledata += "<td>" + objuploadbucket.RequestAttributes[i].description + "</td>";
+              tabledata += "</tr>";
+              $tbody.append(tabledata);
+            }
+            
+            var $tbody1 = $("#response4 tbody");
+            var tabledata1 = "";
+            for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
+                tabledata1 = "";
+                tabledata1 += "<tr>";
+                tabledata1 += "<td>" + objuploadbucket.ResponseAttributes[j].name +"<br><small> Required field: "+ objuploadbucket.ResponseAttributes[j].compulsory+"</small></td>";
+                tabledata1 += "<td>" + objuploadbucket.ResponseAttributes[j].dataType + "</td>";
+                tabledata1 += "<td>" + objuploadbucket.ResponseAttributes[j].description + "</td>";
+                tabledata1 += "</tr>";
+                $tbody1.append(tabledata1);
+              }
      
 }
 
