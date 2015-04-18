@@ -52,4 +52,19 @@ public class DashboardController {
 		return model;
 	}
 	
+	@RequestMapping(value="/getPerformanceDashboardData", method = RequestMethod.GET)
+	public ModelAndView getPerformanceDashboardData(){
+		
+		System.out.println("inside dashboard controller - performance dashboard");
+		//Application application = applicationFacade.getApplication(Integer.parseInt(applicationId));
+		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData();
+		System.out.println("Controller: "+serviceAverageData);
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("index");
+		model.addObject("serviceAverageData", serviceAverageData);
+		
+		return model;
+	}
+	
 }

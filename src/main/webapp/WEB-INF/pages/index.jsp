@@ -90,7 +90,7 @@
 </style>
 
 <script>
-var data = 45;
+var storageServiceAverage = '${storageServiceAverage}';
 var gaugeChart = AmCharts.makeChart( "storageperfchartdiv", {
 	  "type": "gauge",
 	  "theme": "light",
@@ -130,7 +130,7 @@ var gaugeChart = AmCharts.makeChart( "storageperfchartdiv", {
 
 	// set random value
 	function randomValue() {
-	  var value = data;
+	  var value = storageServiceAverage;
 	  if ( gaugeChart ) {
 	    if ( gaugeChart.arrows ) {
 	      if ( gaugeChart.arrows[ 0 ] ) {
@@ -145,7 +145,7 @@ var gaugeChart = AmCharts.makeChart( "storageperfchartdiv", {
 </script>
 
 <script>
-var data1 = 45;
+var sqlServiceAverage = '${sqlServiceAverage}';
 var sqlgaugeChart = AmCharts.makeChart( "sqlperfchartdiv", {
 	  "type": "gauge",
 	  "theme": "light",
@@ -185,7 +185,7 @@ var sqlgaugeChart = AmCharts.makeChart( "sqlperfchartdiv", {
 
 	// set random value
 	function randomValue() {
-	  var value = data1;
+	  var value = sqlServiceAverage;
 	  if ( sqlgaugeChart ) {
 	    if ( sqlgaugeChart.arrows ) {
 	      if ( sqlgaugeChart.arrows[ 0 ] ) {
@@ -200,7 +200,7 @@ var sqlgaugeChart = AmCharts.makeChart( "sqlperfchartdiv", {
 </script>
 
 <script>
-var data1 = 45;
+var nosqlServiceAverage = '${nosqlServiceAverage}';
 var nosqlgaugeChart = AmCharts.makeChart( "nosqlperfchartdiv", {
 	  "type": "gauge",
 	  "theme": "light",
@@ -240,7 +240,7 @@ var nosqlgaugeChart = AmCharts.makeChart( "nosqlperfchartdiv", {
 
 	// set random value
 	function randomValue() {
-	  var value = data1;
+	  var value = nosqlServiceAverage;
 	  if ( nosqlgaugeChart ) {
 	    if ( nosqlgaugeChart.arrows ) {
 	      if ( nosqlgaugeChart.arrows[ 0 ] ) {
@@ -255,13 +255,15 @@ var nosqlgaugeChart = AmCharts.makeChart( "nosqlperfchartdiv", {
 </script>
 
 <script>
-var apirequestsbyservicedata = [{"productName":"NoSQL Service","operation":"CommittedThroughput","rate":0.0},{"productName":"SQL Service","operation":"CreateDBInstance","rate":0.11},{"productName":"Storage Service","operation":"StandardStorage","rate":0.033},{"productName":"Compute Service","operation":"RunInstances","rate":0.0}];
+var apirequestsbyservicedata = '${jsonServiceCountList}';
+var JSONapirequestsbyservicedata = JSON.parse(apirequestsbyservicedata);
+//alert(apirequestsbyservicedata);
 /* alert(data); */
 
 var chart = AmCharts.makeChart( "apirequestsbyservicechartdiv", {
-	  "type": "serial",
+	"type": "serial",
 	  "theme": "light",
-	  "dataProvider": apirequestsbyservicedata,
+	  "dataProvider": JSONapirequestsbyservicedata,
 	  "valueAxes": [ {
 	    "gridColor": "#FFFFFF",
 	    "gridAlpha": 0.2,
@@ -270,11 +272,11 @@ var chart = AmCharts.makeChart( "apirequestsbyservicechartdiv", {
 	  "gridAboveGraphs": true,
 	  "startDuration": 1,
 	  "graphs": [ {
-	             "balloonText": "Rate for [[operation]]:</b>[[rate]]</b>",
+	    "balloonText": "[[productName]]: <b>[[count]]</b>",
 	    "fillAlphas": 0.8,
 	    "lineAlpha": 0.2,
 	    "type": "column",
-	    "valueField": "rate"
+	    "valueField": "count"
 	  } ],
 	  "chartCursor": {
 	    "categoryBalloonEnabled": false,
@@ -295,11 +297,14 @@ var chart = AmCharts.makeChart( "apirequestsbyservicechartdiv", {
 	    }
 	  }
 
-	} ); 
+	} );
 </script>
 
 <script type="text/javascript">
-var cloudserviceleveldata = [{"productName":"Compute Service","cost":9.079999999999998},{"productName":"Storage Service","cost":0.050177990000000006},{"productName":"NoSQL Service","cost":0.0},{"productName":"SQL Service","cost":21.806787750000034}];
+
+var cloudserviceleveldata = '${jsonLevelCountList}';
+var JSONcloudserviceleveldata = JSON.parse(cloudserviceleveldata);
+//alert("Test: "+JSONcloudserviceleveldata);
 /* alert(data); */
 var chart = AmCharts.makeChart( "piechartdiv", {
 	  "type": "pie",
@@ -308,8 +313,8 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 	    "text": "Usage by Cloud Service level",
 	    "size": 16
 	  } ],
-	  "dataProvider": cloudserviceleveldata,
-	  "valueField": "cost",
+	  "dataProvider": JSONcloudserviceleveldata,
+	  "valueField": "count",
 	  "titleField": "productName",
 	  "startEffect": "elastic",
 	  "startDuration": 2,
