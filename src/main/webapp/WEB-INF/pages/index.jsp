@@ -189,7 +189,7 @@
                                             <a href="getNosql">NoSQL</a>
                                         </li>
                                         <li>
-                                            <a href="getStorage">Storage</a>
+                                            <a href="storageAPI">Storage</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
