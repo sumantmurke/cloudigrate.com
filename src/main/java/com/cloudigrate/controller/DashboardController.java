@@ -21,7 +21,7 @@ public class DashboardController {
 
 	DashboardFacade dashboardFacade = new DashboardFacade();
 
-	@RequestMapping(value="/dashboard", method = RequestMethod.GET)
+	@RequestMapping(value="/getBillingChart", method = RequestMethod.GET)
 	public ModelAndView getBillingDashboardData(){
 		
 		System.out.println("inside dashboard controller");

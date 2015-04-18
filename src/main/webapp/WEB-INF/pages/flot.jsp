@@ -65,7 +65,7 @@
 <script type="text/javascript">
 var data = '${serviceCostData}';
 var obj = JSON.parse(data);
-alert(data);
+/* alert(data); */
 var chart = AmCharts.makeChart( "piechartdiv", {
 	  "type": "pie",
 	  "theme": "light",
@@ -114,7 +114,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 <script>
 var data = '${serviceRateData}';
 var rateData = JSON.parse(data);
-alert(data);
+/* alert(data); */
 
 var chart = AmCharts.makeChart( "ratechartdiv", {
 	  "type": "serial",
