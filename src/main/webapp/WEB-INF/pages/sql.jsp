@@ -235,7 +235,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">                        
-                        <h2 class="page-header"><strong><em>SQL</em></strong></h2>
+                        <h2 class="page-header" style = "text-align: center"><strong><em>SQL</em></strong></h2>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
