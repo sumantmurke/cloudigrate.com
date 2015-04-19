@@ -249,9 +249,6 @@ function registerApp(){
                                 <li>
                                     <a href="getBillingChart">Billing Analytics</a>
                                 </li>
-                                <li>
-                                    <a href="getMorrischart">Morris.js Charts</a>
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>                        

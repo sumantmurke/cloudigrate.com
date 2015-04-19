@@ -400,9 +400,6 @@ var gaugeChart = AmCharts.makeChart( "chartdiv", {
                                 <li>
                                     <a href="getBillingChart">Billing Analytics</a>
                                 </li>
-                                <li>
-                                    <a href="getMorrischart">Morris.js Charts</a>
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>                        
@@ -416,7 +413,7 @@ var gaugeChart = AmCharts.makeChart( "chartdiv", {
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                	<h2 class="page-header"><strong><em>Cloud Billing Analytics</em></strong></h2>                    
+                	<h2 class="page-header" style = "text-align: center"><strong><em>Cloud Billing Analytics</em></strong></h2>                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
