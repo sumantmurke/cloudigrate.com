@@ -3,6 +3,7 @@ package com.cloudigrate.facade;
 import java.util.ArrayList;
 
 import com.cloudigrate.dao.DashboardDao;
+import com.cloudigrate.domain.AdminPreference;
 import com.cloudigrate.domain.CloudService;
 
 public class DashboardFacade {
@@ -44,5 +45,15 @@ public class DashboardFacade {
 	
 	public ArrayList<CloudService> getAdminLevelCountDashboardData() {
 		return dashboardDao.getAdminLevelCountDashboardData();
+	}
+
+	public void updatePreference(AdminPreference adminPreference) {
+		// TODO Auto-generated method stub
+		dashboardDao.updatePreference(adminPreference);
+	}
+
+	public AdminPreference getPreference() {
+		// TODO Auto-generated method stub
+		return dashboardDao.getPreference();
 	}
 }

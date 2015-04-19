@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
+import com.cloudigrate.domain.AdminPreference;
 import com.cloudigrate.domain.CloudService;
 import com.cloudigrate.domain.HostConfig;
 
@@ -111,5 +112,44 @@ public class DashboardDao {
 		levelList.add(new CloudService("IaaS",obj.getInt("IaaS")));
 		
 		return levelList;
+	}
+
+	public void updatePreference(AdminPreference adminPreference) {
+		
+		RestTemplate levelCountRestTemplate = null;
+		String message = null;
+		// TODO Auto-generated method stub instance
+		levelCountRestTemplate = new RestTemplate();
+		message = levelCountRestTemplate.postForObject(HostConfig.getHostKey()+"admin/platform?level=sql&value="+ adminPreference.getSql_value(),null ,String.class);
+		System.out.println("Message: "+ message);
+
+		// TODO Auto-generated method stub instance
+		levelCountRestTemplate = new RestTemplate();
+		message = levelCountRestTemplate.postForObject(HostConfig.getHostKey()+"admin/platform?level=nosql"+ adminPreference.getNosql_value(),null, String.class);
+		System.out.println("Message: "+ message);
+
+		// TODO Auto-generated method stub instance
+		levelCountRestTemplate = new RestTemplate();
+		message = levelCountRestTemplate.postForObject(HostConfig.getHostKey()+"admin/platform?level=instance" + adminPreference.getInstance_value(),null, String.class);
+		System.out.println("Message: "+ message);
+
+		// TODO Auto-generated method stub instance
+		levelCountRestTemplate = new RestTemplate();
+		message = levelCountRestTemplate.postForObject(HostConfig.getHostKey()+"admin/platform?level=storage" + adminPreference.getStorage_value(),null, String.class);
+		System.out.println("Message: "+ message);
+	}
+
+	public AdminPreference getPreference() {
+		RestTemplate levelCountRestTemplate = new RestTemplate();
+		String preferenceData = levelCountRestTemplate.getForObject(HostConfig.getHostKey()+"admin/platform", String.class);
+		System.out.println("preferenceData: "+preferenceData);
+		AdminPreference adminPreference = new AdminPreference();
+		JSONObject obj = new JSONObject(preferenceData);
+		adminPreference.setInstance_value(obj.getString("instance"));
+		adminPreference.setNosql_value(obj.getString("nosql"));
+		adminPreference.setSql_value(obj.getString("sql"));
+		adminPreference.setStorage_value(obj.getString("storage"));
+		
+		return adminPreference;
 	}
 }

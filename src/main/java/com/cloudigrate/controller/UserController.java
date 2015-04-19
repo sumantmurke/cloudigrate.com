@@ -56,6 +56,7 @@ public ModelAndView createUser(ModelMap model,
 	session.setAttribute("user", user.getEmail());
 	session.setAttribute("sessionID", session.getId());
 	System.out.println("session "+session.getAttribute("user"));
+	System.out.println("username is session: "+session.getAttribute("user"));
 	SimpleEmailService ses = new SimpleEmailService();
 	MessageBody messagebody = new MessageBody();
 	ArrayList<String> message = messagebody.getEmailforSignup(user.getEmail());
@@ -193,55 +194,51 @@ public ModelAndView createUser(ModelMap model,
 			}
 		}
 
-
 		return model;
-	}
+}
+	
+@RequestMapping(value="/userprofilepage",method = RequestMethod.GET)
+public ModelAndView getProfile(HttpSession session, HttpServletRequest request ){
+	System.out.println("inside userprofile controller");
+	ModelAndView model = new ModelAndView();
+	session = request.getSession();
+	String userid = (String) session.getAttribute("user");
+	System.out.println(" user currently loggied in:"+session.getAttribute("user"));
+	User user = userFacade.getUserDetails(userid);
 
+	model.addObject("userdetail",user);
+	model.setViewName("userprofile");
+	return model;
+}
 
-	@RequestMapping(value="/userprofilepage",method = RequestMethod.GET)
-	public ModelAndView getProfile(HttpSession session, HttpServletRequest request ){
-		System.out.println("inside userprofile controller");
-		ModelAndView model = new ModelAndView();
-		session = request.getSession();
-		String userid = (String) session.getAttribute("user");
-		System.out.println(" user currently loggied in:"+session.getAttribute("user"));
-		User user = userFacade.getUserDetails(userid);
-
-		model.addObject("userdetail",user);
-		model.setViewName("userprofile");
-		return model;
-	}
-
-
-	@RequestMapping(value="/userprofileupdate",method = RequestMethod.POST)
-	public ModelAndView updateProfile( 
-			@FormParam("firstname") String firstname,
-			@FormParam("lastname") String lastname,
-			@FormParam("email") String email,
-			@FormParam("phonenumber") String phonenumber,
-			@FormParam("creditcard") String creditcard,
-			HttpSession session, HttpServletRequest request ){
-		System.out.println("inside update profile controler");
-
-		System.out.println("email "+email);
-
-		session = request.getSession();
-		User user = new User();
-		user.setCreditCard(creditcard);
-		user.setEmail(email);
-		user.setFirstName(firstname);
-		user.setLastName(lastname);
-		user.setPhone(phonenumber);
-
-		userFacade.updateUserProfile(user);
-
-		ModelAndView model = new ModelAndView();
-		model.setViewName("userprofile");
-
-		System.out.println("after model set to home");
-		return model;
-	}
-
+@RequestMapping(value="/userprofileupdate",method = RequestMethod.POST)
+public ModelAndView updateProfile( 
+		@FormParam("firstname") String firstname,
+		@FormParam("lastname") String lastname,
+		@FormParam("email") String email,
+		@FormParam("phonenumber") String phonenumber,
+		@FormParam("creditcard") String creditcard,
+		HttpSession session, HttpServletRequest request ){
+	System.out.println("inside update profile controler");
+	
+	System.out.println("email "+email);
+	
+	session = request.getSession();
+	User user = new User();
+	user.setCreditCard(creditcard);
+	user.setEmail(email);
+	user.setFirstName(firstname);
+	user.setLastName(lastname);
+	user.setPhone(phonenumber);
+	
+	userFacade.updateUserProfile(user);
+	
+	ModelAndView model = new ModelAndView();
+	model.setViewName("userprofile");
+	
+	System.out.println("after model set to home");
+	return model;
+}
 
 	@RequestMapping(value="/logout",method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpSession session){
