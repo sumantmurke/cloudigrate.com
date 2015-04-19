@@ -19,15 +19,15 @@ public class DashboardFacade {
 		return dashboardDao.getStoragePerformanceChartData();
 	}
 	
-	public String getServiceAverageDashboardData() {
-		return dashboardDao.getServiceAverageDashboardData();
+	public String getServiceAverageDashboardData(String user) {
+		return dashboardDao.getServiceAverageDashboardData(user);
 	}
 	
-	public ArrayList<CloudService> getServiceCountDashboardData() {
-		return dashboardDao.getServiceCountDashboardData();
+	public ArrayList<CloudService> getServiceCountDashboardData(String user) {
+		return dashboardDao.getServiceCountDashboardData(user);
 	}
 	
-	public ArrayList<CloudService> getLevelCountDashboardData() {
-		return dashboardDao.getLevelCountDashboardData();
+	public ArrayList<CloudService> getLevelCountDashboardData(String user) {
+		return dashboardDao.getLevelCountDashboardData(user);
 	}
 }

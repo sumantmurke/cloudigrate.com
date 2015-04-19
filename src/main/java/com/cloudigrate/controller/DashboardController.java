@@ -13,6 +13,8 @@ import com.cloudigrate.domain.Application;
 import com.cloudigrate.facade.ApplicationFacade;
 import com.cloudigrate.facade.DashboardFacade;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
 
@@ -53,11 +55,15 @@ public class DashboardController {
 	}
 	
 	@RequestMapping(value="/getPerformanceDashboardData", method = RequestMethod.GET)
-	public ModelAndView getPerformanceDashboardData(){
+	public ModelAndView getPerformanceDashboardData(HttpSession session, HttpServletRequest request){
+		
+		session= request.getSession();
+		String user = (String) session.getAttribute("user");
+		System.out.println("session email "+user);
 		
 		System.out.println("inside dashboard controller - performance dashboard");
 		//Application application = applicationFacade.getApplication(Integer.parseInt(applicationId));
-		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData();
+		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData(user);
 		System.out.println("Controller: "+serviceAverageData);
 		
 		ModelAndView model = new ModelAndView();

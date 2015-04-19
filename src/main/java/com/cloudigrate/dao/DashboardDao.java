@@ -34,19 +34,19 @@ public class DashboardDao {
 		return result;
 	}
 	
-	public String getServiceAverageDashboardData() {
+	public String getServiceAverageDashboardData(String user) {
 
 		RestTemplate serviceAverageRestTemplate = new RestTemplate();
-		String serviceAverageData = serviceAverageRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/serviceaverage", String.class);
+		String serviceAverageData = serviceAverageRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/serviceaverage?userName="+user, String.class);
 		System.out.println("Service Average result: "+serviceAverageData);
 		return serviceAverageData;
 	}
 	
-	public ArrayList<CloudService> getServiceCountDashboardData() {
+	public ArrayList<CloudService> getServiceCountDashboardData(String user) {
 		ArrayList<CloudService> serviceList = new ArrayList<CloudService>();
 		
 		RestTemplate serviceCountRestTemplate = new RestTemplate();
-		String serviceCountData = serviceCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/servicecount", String.class);
+		String serviceCountData = serviceCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/servicecount?userName="+user, String.class);
 		System.out.println("Service Count result: "+serviceCountData);
 		
 		JSONObject obj = new JSONObject(serviceCountData);
@@ -58,11 +58,11 @@ public class DashboardDao {
 		return serviceList;
 	}
 	
-	public ArrayList<CloudService> getLevelCountDashboardData() {
+	public ArrayList<CloudService> getLevelCountDashboardData(String user) {
 		ArrayList<CloudService> levelList = new ArrayList<CloudService>();
 		
 		RestTemplate levelCountRestTemplate = new RestTemplate();
-		String levelCountData = levelCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/levelcount", String.class);
+		String levelCountData = levelCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/levelcount?userName="+user, String.class);
 		System.out.println("Level Count result: "+levelCountData);
 		
 		JSONObject obj = new JSONObject(levelCountData);

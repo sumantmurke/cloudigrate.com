@@ -3,6 +3,9 @@ package com.cloudigrate.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -65,12 +68,15 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/getIndex", method = RequestMethod.GET)
-	public ModelAndView getIndex(){
+	public ModelAndView getIndex(HttpSession session, HttpServletRequest request){
 		
+		session= request.getSession();
+		String user = (String) session.getAttribute("user");
+		System.out.println("session email "+user);
 		
 		System.out.println("inside Main controller - getIndex()");
 		//Application application = applicationFacade.getApplication(Integer.parseInt(applicationId));
-		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData();
+		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData(user);
 		JSONObject serviceAverageDataObj = new JSONObject(serviceAverageData);
 		int serviceAverage[] = new int[3];
 		serviceAverage[0] = serviceAverageDataObj.getInt("storage");
@@ -85,7 +91,7 @@ public class MainController {
 		model.addObject("nosqlServiceAverage", serviceAverage[2]);
 		
 		ArrayList<CloudService> serviceCountList = new ArrayList<CloudService>();
-		serviceCountList = dashboardFacade.getServiceCountDashboardData();
+		serviceCountList = dashboardFacade.getServiceCountDashboardData(user);
 		ObjectMapper objMapper = new ObjectMapper();
 		String jsonServiceCountList=null;;
 		try {
@@ -97,7 +103,7 @@ public class MainController {
 			e.printStackTrace();
 		}
 		
-		ArrayList<CloudService> levelCountList = dashboardFacade.getLevelCountDashboardData();		
+		ArrayList<CloudService> levelCountList = dashboardFacade.getLevelCountDashboardData(user);		
 		ObjectMapper levelObjMapper = new ObjectMapper();		
 		try {
 			String jsonLevelCountList = levelObjMapper.writeValueAsString(levelCountList);
