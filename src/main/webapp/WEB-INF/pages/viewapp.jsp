@@ -43,8 +43,8 @@
 
 <script type="text/javascript">
 
-function showkey(keyid){	
-	var backendKey = "Backend Key";	
+function showkey(keyid, keyValue){	
+	var backendKey = keyValue;	
 	if(document.getElementById("ButtonApplicationKey"+keyid).value == "Show key")
 		{
 			document.getElementById("TextApplicationKey"+keyid).value = backendKey;
@@ -256,7 +256,7 @@ function showkey(keyid){
 													<td>${application.description}</td>
 													<td>${application.organization}</td>
 													<td><input type="text" class="form-control" id="TextApplicationKey${application.id}" placeholder="****"></td>													
-													<td><input class="btn btn-primary center-block" id="ButtonApplicationKey${application.id}" type="button" value="Show key" onclick="showkey(${application.id})"></td>																										
+													<td><input class="btn btn-primary center-block" id="ButtonApplicationKey${application.id}" type="button" value="Show key" onclick="showkey(${application.id} ,'${application.keyValue}')"></td>																										
 												</tr>
 											 </c:forEach> 
 											</tbody>
@@ -271,7 +271,7 @@ function showkey(keyid){
 	
 	<footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> ������ 2015 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> ������������������ 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
 	<!-- /#wrapper -->
