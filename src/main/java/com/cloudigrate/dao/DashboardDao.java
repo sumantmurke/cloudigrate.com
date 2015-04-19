@@ -72,4 +72,43 @@ public class DashboardDao {
 		
 		return levelList;
 	}
+	
+	public String getAdminServiceAverageDashboardData() {
+
+		RestTemplate serviceAverageRestTemplate = new RestTemplate();
+		String serviceAverageData = serviceAverageRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/serviceaverage", String.class);
+		System.out.println("Service Average result: "+serviceAverageData);
+		return serviceAverageData;
+	}
+	
+	public ArrayList<CloudService> getAdminServiceCountDashboardData() {
+		ArrayList<CloudService> serviceList = new ArrayList<CloudService>();
+		
+		RestTemplate serviceCountRestTemplate = new RestTemplate();
+		String serviceCountData = serviceCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/servicecount", String.class);
+		System.out.println("Service Count result: "+serviceCountData);
+		
+		JSONObject obj = new JSONObject(serviceCountData);
+		serviceList.add(new CloudService("storage",obj.getInt("storage")));
+		serviceList.add(new CloudService("sql",obj.getInt("sql")));
+		serviceList.add(new CloudService("nosql",obj.getInt("nosql")));
+		serviceList.add(new CloudService("instance",obj.getInt("instance")));
+		
+		return serviceList;
+	}
+	
+	public ArrayList<CloudService> getAdminLevelCountDashboardData() {
+		ArrayList<CloudService> levelList = new ArrayList<CloudService>();
+		
+		RestTemplate levelCountRestTemplate = new RestTemplate();
+		String levelCountData = levelCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/levelcount", String.class);
+		System.out.println("Level Count result: "+levelCountData);
+		
+		JSONObject obj = new JSONObject(levelCountData);
+		levelList.add(new CloudService("PaaS",obj.getInt("PaaS")));
+		levelList.add(new CloudService("SaaS",obj.getInt("SaaS")));
+		levelList.add(new CloudService("IaaS",obj.getInt("IaaS")));
+		
+		return levelList;
+	}
 }

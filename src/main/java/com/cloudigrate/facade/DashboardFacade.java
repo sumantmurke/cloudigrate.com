@@ -30,4 +30,19 @@ public class DashboardFacade {
 	public ArrayList<CloudService> getLevelCountDashboardData(String user) {
 		return dashboardDao.getLevelCountDashboardData(user);
 	}
+	
+	/*
+	 * Admin dashboard functions
+	 */
+	public String getAdminServiceAverageDashboardData() {
+		return dashboardDao.getAdminServiceAverageDashboardData();
+	}
+	
+	public ArrayList<CloudService> getAdminServiceCountDashboardData() {
+		return dashboardDao.getAdminServiceCountDashboardData();
+	}
+	
+	public ArrayList<CloudService> getAdminLevelCountDashboardData() {
+		return dashboardDao.getAdminLevelCountDashboardData();
+	}
 }

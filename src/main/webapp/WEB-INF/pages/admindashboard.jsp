@@ -36,6 +36,291 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/gauge.js"></script>
+<script type="text/javascript"
+	src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
+
+<style>
+#piechartdiv {
+	width: 100%;
+	height: 435px;
+	font-size: 11px;
+}
+
+#apirequestsbyservicechartdiv {
+	width: 100%;
+	height: 500px;
+	font-size: 11px;
+}
+
+#storageperfchartdiv {
+	width: 100%;
+	height: 200px;
+}
+
+#sqlperfchartdiv {
+	width: 100%;
+	height: 200px;
+}
+
+#nosqlperfchartdiv {
+	width: 100%;
+	height: 200px;
+}
+</style>
+
+<script>
+var storageServiceAverage = '${storageServiceAverage}';
+var gaugeChart = AmCharts.makeChart( "storageperfchartdiv", {
+	  "type": "gauge",
+	  "theme": "light",
+	  "axes": [ {
+	    "axisThickness": 1,
+	    "axisAlpha": 0.2,
+	    "tickAlpha": 0.2,
+	    "valueInterval": 200,
+	    "bands": [ {
+	      "color": "#84b761",
+	      "endValue": 800,
+	      "startValue": 0
+	    }, {
+	      "color": "#fdd400",
+	      "endValue": 1500,
+	      "startValue": 800
+	    }, {
+	      "color": "#cc4748",
+	      "endValue": 1800,
+	      "innerRadius": "95%",
+	      "startValue": 1500
+	    } ],
+	    "bottomText": "Avg. 0ms",
+	    "bottomTextYOffset": -100,
+	    "endValue": 1800
+	  } ],
+	  "arrows": [ {} ],
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+
+	setInterval( randomValue, 2000 );
+
+	// set random value
+	function randomValue() {
+	  var value = storageServiceAverage;
+	  if ( gaugeChart ) {
+	    if ( gaugeChart.arrows ) {
+	      if ( gaugeChart.arrows[ 0 ] ) {
+	        if ( gaugeChart.arrows[ 0 ].setValue ) {
+	          gaugeChart.arrows[ 0 ].setValue( value );
+	          gaugeChart.axes[ 0 ].setBottomText( "Avg. " +value+"ms" );
+	        }
+	      }
+	    }
+	  }
+	}
+</script>
+
+<script>
+var sqlServiceAverage = '${sqlServiceAverage}';
+var sqlgaugeChart = AmCharts.makeChart( "sqlperfchartdiv", {
+	  "type": "gauge",
+	  "theme": "light",
+	  "axes": [ {
+	    "axisThickness": 1,
+	    "axisAlpha": 0.2,
+	    "tickAlpha": 0.2,
+	    "valueInterval": 200,
+	    "bands": [ {
+	      "color": "#84b761",
+	      "endValue": 800,
+	      "startValue": 0
+	    }, {
+	      "color": "#fdd400",
+	      "endValue": 1500,
+	      "startValue": 800
+	    }, {
+	      "color": "#cc4748",
+	      "endValue": 1800,
+	      "innerRadius": "95%",
+	      "startValue": 1500
+	    } ],
+	    "bottomText": "Avg. 0ms",
+	    "bottomTextYOffset": -100,
+	    "endValue": 1800
+	  } ],
+	  "arrows": [ {} ],
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+
+	setInterval( randomValue, 2000 );
+
+	// set random value
+	function randomValue() {
+	  var value = sqlServiceAverage;
+	  if ( sqlgaugeChart ) {
+	    if ( sqlgaugeChart.arrows ) {
+	      if ( sqlgaugeChart.arrows[ 0 ] ) {
+	        if ( sqlgaugeChart.arrows[ 0 ].setValue ) {
+	        	sqlgaugeChart.arrows[ 0 ].setValue( value );
+	        	sqlgaugeChart.axes[ 0 ].setBottomText( "Avg. " +value+"ms" );
+	        }
+	      }
+	    }
+	  }
+	}
+</script>
+
+<script>
+var nosqlServiceAverage = '${nosqlServiceAverage}';
+var nosqlgaugeChart = AmCharts.makeChart( "nosqlperfchartdiv", {
+	  "type": "gauge",
+	  "theme": "light",
+	  "axes": [ {
+	    "axisThickness": 1,
+	    "axisAlpha": 0.2,
+	    "tickAlpha": 0.2,
+	    "valueInterval": 200,
+	    "bands": [ {
+	      "color": "#84b761",
+	      "endValue": 800,
+	      "startValue": 0
+	    }, {
+	      "color": "#fdd400",
+	      "endValue": 1500,
+	      "startValue": 800
+	    }, {
+	      "color": "#cc4748",
+	      "endValue": 1800,
+	      "innerRadius": "95%",
+	      "startValue": 1500
+	    } ],
+	    "bottomText": "Avg. 0ms",
+	    "bottomTextYOffset": -100,
+	    "endValue": 1800
+	  } ],
+	  "arrows": [ {} ],
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+
+	setInterval( randomValue, 2000 );
+
+	// set random value
+	function randomValue() {
+	  var value = nosqlServiceAverage;
+	  if ( nosqlgaugeChart ) {
+	    if ( nosqlgaugeChart.arrows ) {
+	      if ( nosqlgaugeChart.arrows[ 0 ] ) {
+	        if ( nosqlgaugeChart.arrows[ 0 ].setValue ) {
+	        	nosqlgaugeChart.arrows[ 0 ].setValue( value );
+	        	nosqlgaugeChart.axes[ 0 ].setBottomText( "Avg. " +value+"ms" );
+	        }
+	      }
+	    }
+	  }
+	}
+</script>
+
+<script>
+var apirequestsbyservicedata = '${jsonServiceCountList}';
+var JSONapirequestsbyservicedata = JSON.parse(apirequestsbyservicedata);
+//alert(apirequestsbyservicedata);
+/* alert(data); */
+
+var chart = AmCharts.makeChart( "apirequestsbyservicechartdiv", {
+	"type": "serial",
+	  "theme": "light",
+	  "dataProvider": JSONapirequestsbyservicedata,
+	  "valueAxes": [ {
+	    "gridColor": "#FFFFFF",
+	    "gridAlpha": 0.2,
+	    "dashLength": 0
+	  } ],
+	  "gridAboveGraphs": true,
+	  "startDuration": 1,
+	  "graphs": [ {
+	    "balloonText": "[[productName]]: <b>[[count]]</b>",
+	    "fillAlphas": 0.8,
+	    "lineAlpha": 0.2,
+	    "type": "column",
+	    "valueField": "count"
+	  } ],
+	  "chartCursor": {
+	    "categoryBalloonEnabled": false,
+	    "cursorAlpha": 0,
+	    "zoomable": false
+	  },
+	  "categoryField": "productName",
+	  "categoryAxis": {
+	    "gridPosition": "start",
+	    "gridAlpha": 0,
+	    "tickPosition": "start",
+	    "tickLength": 20
+	  },
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+
+	} );
+</script>
+
+<script type="text/javascript">
+
+var cloudserviceleveldata = '${jsonLevelCountList}';
+var JSONcloudserviceleveldata = JSON.parse(cloudserviceleveldata);
+//alert("Test: "+JSONcloudserviceleveldata);
+/* alert(data); */
+var chart = AmCharts.makeChart( "piechartdiv", {
+	  "type": "pie",
+	  "theme": "light",
+	  "titles": [ {
+	    "text": "Usage by Cloud Service level",
+	    "size": 16
+	  } ],
+	  "dataProvider": JSONcloudserviceleveldata,
+	  "valueField": "count",
+	  "titleField": "productName",
+	  "startEffect": "elastic",
+	  "startDuration": 2,
+	  "labelRadius": 15,
+	  "innerRadius": "50%",
+	  "depth3D": 10,
+	  "balloonText": "[[productName]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+	  "angle": 15,
+	  "export": {
+	    "enabled": true,
+	    "libs": {
+	      "path": "http://www.amcharts.com/lib/3/plugins/export/libs/"
+	    }
+	  }
+	} );
+</script>
+
 </head>
 
 <body>
@@ -188,130 +473,75 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           <div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div id="storageperfchartdiv"></div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">Storage Performance</span> <span
+									class="pull-right"><i class="fa fa-bell fa-fw"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="panel panel-green">
+						<div class="panel-heading">
+							<div class="row">
+								<div id="sqlperfchartdiv"></div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">SQL Performance</span> <span
+									class="pull-right"><i class="fa fa-bell fa-fw"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="panel panel-yellow">
+						<div class="panel-heading">
+							<div class="row">
+								<div id="nosqlperfchartdiv"></div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">NoSQL Performance</span> <span
+									class="pull-right"><i class="fa fa-bell fa-fw"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> API requests by cloud
+							service
+							<div class="pull-right"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body">
+							<div id="apirequestsbyservicechartdiv"></div>
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+					<!-- <div class="panel panel-default">
+
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">
@@ -334,7 +564,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -400,24 +630,24 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!-- /.table-responsive -->
+                                    /.table-responsive
                                 </div>
-                                <!-- /.col-lg-4 (nested) -->
+                                /.col-lg-4 (nested)
                                 <div class="col-lg-8">
                                     <div id="morris-bar-chart"></div>
                                 </div>
-                                <!-- /.col-lg-8 (nested) -->
+                                /.col-lg-8 (nested)
                             </div>
-                            <!-- /.row -->
+                            /.row
                         </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
+                        /.panel-body
+                    </div> -->
+					<!-- /.panel -->
+					<!--  <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <ul class="timeline">
                                 <li>
@@ -522,72 +752,28 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                                </a>
-                            </div>
-                            <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
+                        /.panel-body
+                    </div> -->
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-8 -->
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Your application residing
+							on various cloud service level
+						</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body">
+							<div id="piechartdiv"></div>
+
+
+
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+					<!--  <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
                         </div>
@@ -595,10 +781,10 @@
                             <div id="morris-donut-chart"></div>
                             <a href="#" class="btn btn-default btn-block">View Details</a>
                         </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="chat-panel panel panel-default">
+                        /.panel-body
+                    </div> -->
+					<!-- /.panel -->
+					<!-- <div class="chat-panel panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
                             Chat
@@ -636,7 +822,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
+                        /.panel-heading
                         <div class="panel-body">
                             <ul class="chat">
                                 <li class="left clearfix">
@@ -702,7 +888,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- /.panel-body -->
+                        /.panel-body
                         <div class="panel-footer">
                             <div class="input-group">
                                 <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
@@ -713,12 +899,12 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- /.panel-footer -->
-                    </div>
-                    <!-- /.panel .chat-panel -->
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
+                        /.panel-footer
+                    </div> -->
+					<!-- /.panel .chat-panel -->
+				</div>
+				<!-- /.col-lg-4 -->
+			</div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->

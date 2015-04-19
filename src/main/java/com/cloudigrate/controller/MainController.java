@@ -193,8 +193,48 @@ public class MainController {
 	@RequestMapping(value="/getAdmindashboard", method = RequestMethod.GET)
 	public ModelAndView getAdmindashboard(){
 		
-		System.out.println("inside getadmindashboard");
-		return new ModelAndView("admindashboard");
+		
+		System.out.println("inside Main controller - getIndex()");
+		//Application application = applicationFacade.getApplication(Integer.parseInt(applicationId));
+		String serviceAverageData = dashboardFacade.getAdminServiceAverageDashboardData();
+		JSONObject serviceAverageDataObj = new JSONObject(serviceAverageData);
+		int serviceAverage[] = new int[3];
+		serviceAverage[0] = serviceAverageDataObj.getInt("storage");
+		serviceAverage[1] = serviceAverageDataObj.getInt("sql");
+		serviceAverage[2] = serviceAverageDataObj.getInt("nosql");
+		System.out.println("Testing String to JSON: "+serviceAverage[1]);
+		ModelAndView model = new ModelAndView();
+		model.setViewName("admindashboard");
+		//model.addObject("serviceAverageData", serviceAverageData);
+		model.addObject("storageServiceAverage", serviceAverage[0]);
+		model.addObject("sqlServiceAverage", serviceAverage[1]);
+		model.addObject("nosqlServiceAverage", serviceAverage[2]);
+		
+		ArrayList<CloudService> serviceCountList = new ArrayList<CloudService>();
+		serviceCountList = dashboardFacade.getAdminServiceCountDashboardData();
+		ObjectMapper objMapper = new ObjectMapper();
+		String jsonServiceCountList=null;;
+		try {
+			jsonServiceCountList = objMapper.writeValueAsString(serviceCountList);
+			System.out.println("Testing Service Count List: "+jsonServiceCountList.toString());
+			model.addObject("jsonServiceCountList", jsonServiceCountList.toString());
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ArrayList<CloudService> levelCountList = dashboardFacade.getAdminLevelCountDashboardData();		
+		ObjectMapper levelObjMapper = new ObjectMapper();		
+		try {
+			String jsonLevelCountList = levelObjMapper.writeValueAsString(levelCountList);
+			System.out.println("Testing Service Count List: "+jsonLevelCountList.toString());
+			model.addObject("jsonLevelCountList", jsonLevelCountList.toString());
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return model;
 	}
 	
 	@RequestMapping(value="/getAdminsettings", method = RequestMethod.GET)
