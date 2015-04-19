@@ -373,9 +373,7 @@ function foo(){
 	*/
 	var getitem = '${getitem}';
 	var obj = jQuery.parseJSON(getitem);
-	//alert(getitem);
-	//var details = jsonobj.Details;
-	alert(obj.RequestAttributes[0].name);
+	
 	var method = obj.Method;
 	var typeofmethod = method.split(":");
 	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
@@ -411,9 +409,7 @@ function foo(){
  	*/ 
      var getitem = '${insertitem}';
  	var obj = jQuery.parseJSON(getitem);
- 	//alert(getitem);
- 	//var details = jsonobj.Details;
- 	alert(obj.RequestAttributes[0].name);
+ 	
  	var method = obj.Method;
  	var typeofmethod = method.split(":");
  	 document.getElementById('typeofmethod1').innerHTML= typeofmethod[0];

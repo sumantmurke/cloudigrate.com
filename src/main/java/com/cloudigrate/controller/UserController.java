@@ -17,40 +17,52 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cloudigrate.domain.CloudService;
 import com.cloudigrate.domain.User;
+
 import com.cloudigrate.facade.DashboardFacade;
+
+import com.cloudigrate.facade.MessageBody;
+import com.cloudigrate.facade.SimpleEmailService;
+
 import com.cloudigrate.facade.UserFacade;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class UserController {
-	final static Logger logger = Logger.getLogger(UserController.class);	
-	UserFacade userFacade = new UserFacade();
-	DashboardFacade dashboardFacade = new DashboardFacade();
-	@RequestMapping(value="/signup", method = RequestMethod.POST)
-	public ModelAndView createUser(ModelMap model,
-			@FormParam("fname") String fname,
-			@FormParam("lname") String lname,
-			@FormParam("email") String email,
-			@FormParam("password") String password,
-			@FormParam("phonenumber") String phonenumber,
-			@FormParam("creditcard") String creditcard
-			){
-		logger.info("inside signup page");
-		System.out.println("inside signup controller");
-		User user = new User();
-		user.setCreditCard(creditcard);
-		user.setFirstName(fname);
-		user.setLastName(lname);
-		user.setPassword(password);
-		user.setPhone(phonenumber);
-		user.setEmail(email);
-		user.setIsAdmin(0);
-		UserFacade userfacade = new UserFacade();
-		userfacade.createUser(user);
-		return new ModelAndView("index");
+final static Logger logger = Logger.getLogger(UserController.class);	
+UserFacade userFacade = new UserFacade();
+@RequestMapping(value="/signup", method = RequestMethod.POST)
+public ModelAndView createUser(ModelMap model,
+		@FormParam("fname") String fname,
+		@FormParam("lname") String lname,
+		@FormParam("email") String email,
+		@FormParam("password") String password,
+		@FormParam("phonenumber") String phonenumber,
+		@FormParam("creditcard") String creditcard
+		){
+	logger.info("inside signup page");
+	System.out.println("inside signup controller");
+	User user = new User();
+	user.setCreditCard(creditcard);
+	user.setFirstName(fname);
+	user.setLastName(lname);
+	user.setPassword(password);
+	user.setPhone(phonenumber);
+	user.setEmail(email);
+	user.setIsAdmin(0);
+	UserFacade userfacade = new UserFacade();	
+	userfacade.createUser(user);
+	SimpleEmailService ses = new SimpleEmailService();
+	MessageBody messagebody = new MessageBody();
+	ArrayList<String> message = messagebody.getEmailforSignup(user.getEmail());
+	
+	ses.setConnec(user.getEmail(), message.get(0), message.get(1));
+	return new ModelAndView("index");
+	
+}
 
-	}
+	DashboardFacade dashboardFacade = new DashboardFacade();
+	
 
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ModelAndView loginUser( 
