@@ -52,7 +52,7 @@ function showkey(keyid){
 		}
 	else
 		{
-		document.getElementById("TextApplicationKey"+keyid).value = "xxxx";
+		document.getElementById("TextApplicationKey"+keyid).value = "****";
 		document.getElementById("ButtonApplicationKey"+keyid).value = "Show key"
 		}
 }
@@ -258,7 +258,7 @@ function showkey(keyid){
 													<td>${application.publisher}</td>
 													<td>${application.description}</td>
 													<td>${application.organization}</td>
-													<td><input type="text" class="form-control" id="TextApplicationKey${application.id}" placeholder="xxxx"></td>													
+													<td><input type="text" class="form-control" id="TextApplicationKey${application.id}" placeholder="****"></td>													
 													<td><input class="btn btn-primary center-block" id="ButtonApplicationKey${application.id}" type="button" value="Show key" onclick="showkey(${application.id})"></td>																										
 												</tr>
 											 </c:forEach> 
