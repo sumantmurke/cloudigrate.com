@@ -54,4 +54,19 @@ public class APIController {
 		System.out.println("get item "+getitem.toString());
 		return model;
 	}
+	
+	@RequestMapping(value="/sql", method = RequestMethod.GET)
+	public ModelAndView getSQL() throws IOException, ParseException{
+		ModelAndView model = new ModelAndView();
+		JSONObject getpassword = apicontrollerfacade.getSqlAPIGetPassword();
+		JSONObject getusername  = apicontrollerfacade.getSqlAPIGetUsername();
+		JSONObject getconnectionstring  = apicontrollerfacade.getSqlAPIGetConnectionString();
+		model.setViewName("sql");
+		model.addObject("getpassword", getpassword);
+		model.addObject("getusername", getusername);
+		model.addObject("getconnectionstring", getconnectionstring);
+		//System.out.println("get item "+getitem.toString());
+		return model;
+	}
+	
 }

@@ -116,4 +116,49 @@ public class APIControllerFacade {
 		
 		 return jsonObject;
 	}
+
+
+	/**
+	 * @return
+	 * @throws ParseException 
+	 * @throws IOException 
+	 */
+	public JSONObject getSqlAPIGetPassword() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL-GetPassword.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+		
+	}
+
+
+	/**
+	 * @return
+	 * @throws ParseException 
+	 * @throws IOException 
+	 */
+	public JSONObject getSqlAPIGetUsername() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL-GetUsername.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+		
+	}
+
+
+	/**
+	 * @return
+	 */
+	public JSONObject getSqlAPIGetConnectionString() throws IOException, ParseException{
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL_GetConnectionString.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
 }
