@@ -41,6 +41,22 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+
+function showkey(keyid){	
+	var backendKey = "Backend Key";	
+	if(document.getElementById("ButtonApplicationKey"+keyid).value == "Show key")
+		{
+			document.getElementById("TextApplicationKey"+keyid).value = backendKey;
+			document.getElementById("ButtonApplicationKey"+keyid).value = "Hide key"
+		}
+	else
+		{
+		document.getElementById("TextApplicationKey"+keyid).value = "xxxx";
+		document.getElementById("ButtonApplicationKey"+keyid).value = "Show key"
+		}
+}
+</script>
 </head>
 
 <body>
@@ -241,8 +257,9 @@
 													<td>${application.name}</td>
 													<td>${application.publisher}</td>
 													<td>${application.description}</td>
-													<td>${application.organization}</td>													
-													<td><input class="btn btn-primary center-block" type="button" value="Show key"></td>
+													<td>${application.organization}</td>
+													<td><input type="text" class="form-control" id="TextApplicationKey${application.id}" placeholder="xxxx"></td>													
+													<td><input class="btn btn-primary center-block" id="ButtonApplicationKey${application.id}" type="button" value="Show key" onclick="showkey(${application.id})"></td>																										
 												</tr>
 											 </c:forEach> 
 											</tbody>
