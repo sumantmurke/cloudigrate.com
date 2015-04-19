@@ -38,7 +38,8 @@ public ModelAndView createUser(ModelMap model,
 		@FormParam("email") String email,
 		@FormParam("password") String password,
 		@FormParam("phonenumber") String phonenumber,
-		@FormParam("creditcard") String creditcard
+		@FormParam("creditcard") String creditcard,
+		HttpSession session
 		){
 	logger.info("inside signup page");
 	System.out.println("inside signup controller");
@@ -52,6 +53,9 @@ public ModelAndView createUser(ModelMap model,
 	user.setIsAdmin(0);
 	UserFacade userfacade = new UserFacade();	
 	userfacade.createUser(user);
+	session.setAttribute("user", user.getEmail());
+	session.setAttribute("sessionID", session.getId());
+	System.out.println("username is session: "+session.getAttribute("user"));
 	SimpleEmailService ses = new SimpleEmailService();
 	MessageBody messagebody = new MessageBody();
 	ArrayList<String> message = messagebody.getEmailforSignup(user.getEmail());
