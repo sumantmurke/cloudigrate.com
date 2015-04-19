@@ -69,4 +69,22 @@ public class APIController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value="/instanceAPI", method = RequestMethod.GET)
+	public ModelAndView getInstanceAPI() throws IOException, ParseException{
+		ModelAndView model = new ModelAndView();
+		JSONObject createvm = apicontrollerfacade.getInstanceCreateAPI();
+		JSONObject stopvm  = apicontrollerfacade.getInstanceStopAPI();
+		JSONObject terminatevm  = apicontrollerfacade.getInstanceTerminate();
+		model.setViewName("instance");
+		model.addObject("createvm", createvm);
+		model.addObject("stopvm", stopvm);
+		model.addObject("terminatevm", terminatevm);
+		//System.out.println("get item "+getitem.toString());
+		return model;
+	}
+	
+	
+	
+	
 }

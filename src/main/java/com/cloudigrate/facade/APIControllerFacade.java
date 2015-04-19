@@ -161,4 +161,45 @@ public class APIControllerFacade {
 		
 		 return jsonObject;
 	}
+
+
+	/**
+	 * @return
+	 * @throws ParseException 
+	 * @throws IOException 
+	 */
+	public JSONObject getInstanceCreateAPI() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/create_vm.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
+
+
+	/**
+	 * @return
+	 */
+	public JSONObject getInstanceStopAPI() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/stop_vm.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
+
+
+	/**
+	 * @return
+	 */
+	public JSONObject getInstanceTerminate()  throws IOException, ParseException{
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/terminate.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
 }

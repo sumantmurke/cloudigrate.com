@@ -461,7 +461,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 							<ul class="nav nav-second-level">
 								<li><a href="#">IAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="getInstance">Instance</a></li>
+										<li><a href="instanceAPI">Instance</a></li>
 									</ul></li>
 								<li><a href="#">PAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
