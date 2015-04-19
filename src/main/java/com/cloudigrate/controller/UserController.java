@@ -80,7 +80,6 @@ public ModelAndView loginUser(
 
 	return model;
 }
-
 	
 @RequestMapping(value="/userprofilepage",method = RequestMethod.GET)
 public ModelAndView getProfile(HttpSession session, HttpServletRequest request ){
@@ -95,7 +94,6 @@ public ModelAndView getProfile(HttpSession session, HttpServletRequest request )
 	model.setViewName("userprofile");
 	return model;
 }
-
 
 @RequestMapping(value="/userprofileupdate",method = RequestMethod.POST)
 public ModelAndView updateProfile( 

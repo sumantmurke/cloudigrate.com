@@ -32,38 +32,50 @@
 
 <script type="text/javascript">	
 function uploadFormData(){	
+	var instance_value, sql_value, nosql_value, storage_value;
+	
 if (document.getElementById('Instance_aws').checked) {
-	 var instance_value = document.getElementById('Instance_aws').value;
-	 alert(instance_value);
+	 instance_value = document.getElementById('Instance_aws').value;
 	}    
 if (document.getElementById('Instance_google').checked) {
-	 var instance_value = document.getElementById('Instance_google').value;
-	 alert(instance_value);
+	 instance_value = document.getElementById('Instance_google').value;
 	} 
 if (document.getElementById('SQL_aws').checked) {
-	 var sql_value = document.getElementById('SQL_aws').value;
-	 alert(sql_value);
+	sql_value = document.getElementById('SQL_aws').value;
 	}    
 if (document.getElementById('SQL_google').checked) {
-	 var sql_value = document.getElementById('SQL_google').value;	 
-	 alert(sql_value);
+	 sql_value = document.getElementById('SQL_google').value;	 
 	}
 if (document.getElementById('NoSQL_aws').checked) {
-	 var nosql_value = document.getElementById('NoSQL_aws').value;
-	 alert(nosql_value);
+	nosql_value = document.getElementById('NoSQL_aws').value;
 	}    
 if (document.getElementById('NoSQL_google').checked) {
-	 var nosql_value = document.getElementById('NoSQL_google').value;
-	 alert(nosql_value);
+	nosql_value = document.getElementById('NoSQL_google').value;
 	}
 if (document.getElementById('Storage_aws').checked) {
-	 var storage_value = document.getElementById('Storage_aws').value;
-	 alert(storage_value);
+	 storage_value = document.getElementById('Storage_aws').value;
 	}    
 if (document.getElementById('Storage_google').checked) {
-	 var storage_value = document.getElementById('Storage_google').value;
-	 alert(storage_value);
+	storage_value = document.getElementById('Storage_google').value;
 	} 
+
+	$.ajax({
+		url : "adminpreference",
+    	type: "POST",
+    	data : "instance_value=" + instance_value + "&sql_value=" + sql_value + "&nosql_value=" + nosql_value + "&storage_value=" + storage_value,
+   
+    	success:function(textStatus, jqXHR){
+    		alert('success');
+   			window.location.href="adminsettings";
+    	},
+    	error: function(jqXHR, textStatus, errorThrown){
+    	alert('Could not process request.. ' + errorThrown);
+    	//	window.location.href="getHome";
+    	}
+	});
+	} else {
+	  alert("you pressesd no");
+	}
 }
 </script>
 </head>
@@ -174,7 +186,7 @@ if (document.getElementById('Storage_google').checked) {
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="getAdminprofile"><i class="fa fa-user fa-fw"></i> Admin Profile</a>
                         </li>  
-                        <li><a href="getAdminsettings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="adminpreference"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>                      
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -230,13 +242,13 @@ if (document.getElementById('Storage_google').checked) {
 					    	<td>					    	
 					    	<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios1" id="Instance_aws" value="Instance_aws" checked>
+							    <input type="radio" name="optionsRadios1" id="Instance_aws" value="AWS" checked>
 							    Amazon Web Services
 							  </label>
 							</div>
 							<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios1" id="Instance_google" value="Instance_google">
+							    <input type="radio" name="optionsRadios1" id="Instance_google" value="GOOGLE">
 							    Google Cloud Platform
 							  </label>
 							</div>												    	
@@ -257,13 +269,13 @@ if (document.getElementById('Storage_google').checked) {
 					    	<td>					    						  						    					    	
 					    	<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios2" id="SQL_aws" value="SQL_aws" checked>
+							    <input type="radio" name="optionsRadios2" id="SQL_aws" value="AWS" checked>
 							    Amazon Web Services
 							  </label>
 							</div>
 							<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios2" id="SQL_google" value="SQL_google">
+							    <input type="radio" name="optionsRadios2" id="SQL_google" value="GOOGLE">
 							    Google Cloud Platform
 							  </label>
 							</div>
@@ -277,13 +289,13 @@ if (document.getElementById('Storage_google').checked) {
 					    	<td>
 					    	<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios3" id="NoSQL_aws" value="NoSQL_aws" checked>
+							    <input type="radio" name="optionsRadios3" id="NoSQL_aws" value="AWS" checked>
 							    Amazon Web Services
 							  </label>
 							</div>
 							<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios3" id="NoSQL_google" value="NoSQL_google">
+							    <input type="radio" name="optionsRadios3" id="NoSQL_google" value="GOOGLE">
 							    Google Cloud Platform
 							  </label>
 							</div>
@@ -297,13 +309,13 @@ if (document.getElementById('Storage_google').checked) {
 					    	<td>
 					    	<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios4" id="Storage_aws" value="Storage_aws" checked>
+							    <input type="radio" name="optionsRadios4" id="Storage_aws" value="AWS" checked>
 							    Amazon Web Services
 							  </label>
 							</div>
 							<div class="radio">
 							  <label>
-							    <input type="radio" name="optionsRadios4" id="Storage_google" value="Storage_google">
+							    <input type="radio" name="optionsRadios4" id="Storage_google" value="GOOGLE">
 							    Google Cloud Platform
 							  </label>
 							</div>
