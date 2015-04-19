@@ -24,7 +24,7 @@ public class APIController {
 	APIControllerFacade apicontrollerfacade = new APIControllerFacade();
 
 	@RequestMapping(value="/storageAPI", method = RequestMethod.GET)
-	public ModelAndView getInstance() throws IOException, ParseException{
+	public ModelAndView getStorage() throws IOException, ParseException{
 
 		ModelAndView model = new ModelAndView();
 		System.out.println(" before storage controller");
@@ -42,4 +42,16 @@ public class APIController {
 		return model;
 	}
 
+
+	@RequestMapping(value="/nosql", method = RequestMethod.GET)
+	public ModelAndView getNOSQL() throws IOException, ParseException{
+		ModelAndView model = new ModelAndView();
+		JSONObject getitem = apicontrollerfacade.getNosqlAPIGetItem();
+		JSONObject insertitem  = apicontrollerfacade.getNosqlAPIInsertItem();
+		model.setViewName("nosql");
+		model.addObject("getitem", getitem);
+		model.addObject("insertitem", insertitem);
+		System.out.println("get item "+getitem.toString());
+		return model;
+	}
 }

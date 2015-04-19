@@ -32,7 +32,7 @@
 
 </head>
 
-<body>
+<body onload="foo()">
 
     <div id="wrapper">
 
@@ -244,6 +244,108 @@
                 </div>
                 <!-- /.row -->
             </div>
+            
+   <!-- Start for Get Item -->				
+					<h4>1. Get Item:</h4>
+            <h5>Method:</h5>
+			<code id="typeofmethod"></code>
+			<br>
+			<br>
+			<div class="row" >
+			<h5 style="margin: 15px">Endpoint:</h5>
+				<code id="url"
+					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+			</div>
+		
+			<br>
+			<!-- Request Table -->
+			<div class="row">
+			<h5 style="margin: 15px">Request Parameters:</h5>
+			<table id= "request" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			</table>
+			</div>
+
+	<!-- Response Table -->
+		<br>
+			<div class="row">
+			<h5 style="margin: 15px">Response Parameters:</h5>
+			<table id= "response" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			
+			</table>
+			</div>
+			<hr>
+       <!-- End for Get Item -->    
+       
+       
+        <!-- Start for Insert Item -->				
+					<h4>2. Insert Item:</h4>
+            <h5>Method:</h5>
+			<code id="typeofmethod1"></code>
+			<br>
+			<br>
+			<div class="row" >
+			<h5 style="margin: 15px">Endpoint:</h5>
+				<code id="url1"
+					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+			</div>
+		
+			<br>
+			<!-- Request Table -->
+			<div class="row">
+			<h5 style="margin: 15px">Request Parameters:</h5>
+			<table id= "request1" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			</table>
+			</div>
+
+	<!-- Response Table -->
+		<br>
+			<div class="row">
+			<h5 style="margin: 15px">Response Parameters:</h5>
+			<table id= "response1" class="table table-striped" style="margin: 15px">
+			<thead>
+			<tr>
+			<td>Name</td>
+			<td>DataType</td>
+			<td>Description</td>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			
+			</table>
+			</div>
+			<hr>
+       <!-- End for Insert Item -->     
+       
+       
+        
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
@@ -270,5 +372,85 @@
     <script src="startbootstrap-sb-admin-2-1.0.5/dist/js/sb-admin-2.js"></script>
 
 </body>
+<script type="text/javascript">
+function foo(){
+	/*
+	Get items no sql
+	*/
+	var getitem = '${getitem}';
+	var obj = jQuery.parseJSON(getitem);
+	//alert(getitem);
+	//var details = jsonobj.Details;
+	alert(obj.RequestAttributes[0].name);
+	var method = obj.Method;
+	var typeofmethod = method.split(":");
+	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
+	 //document.getElementById('url').innerHTML = obj.Endpoint;
+	 
+	 var $tbody = $("#request tbody");
+	 var tabledata = "";
+     for(var i = 0; i < obj.RequestAttributes.length; i++ ){
+       tabledata = "";
+       tabledata += "<tr>";
+       tabledata += "<td>" + obj.RequestAttributes[i].name + "<br><small> Required field: "+ obj.RequestAttributes[i].compulsory+"</small></td>";
+       tabledata += "<td>" + obj.RequestAttributes[i].dataType + "</td>";
+       tabledata += "<td>" + obj.RequestAttributes[i].description + "</td>";
+       tabledata += "</tr>";
+       $tbody.append(tabledata);
+     }
+     
+     var $tbody1 = $("#response tbody");
+     var tabledata1 = "";
+     for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
+         tabledata1 = "";
+         tabledata1 += "<tr>";
+         tabledata1 += "<td>" + obj.ResponseAttributes[j].name +"<br><small> Required field: "+ obj.ResponseAttributes[j].compulsory+"</small></td>";
+         tabledata1 += "<td>" + obj.ResponseAttributes[j].dataType + "</td>";
+         tabledata1 += "<td>" + obj.ResponseAttributes[j].description + "</td>";
+         tabledata1 += "</tr>";
+         $tbody1.append(tabledata1);
+       }
+     
+     
+ 	/*
+ 	Insert items no sql
+ 	*/ 
+     var getitem = '${insertitem}';
+ 	var obj = jQuery.parseJSON(getitem);
+ 	//alert(getitem);
+ 	//var details = jsonobj.Details;
+ 	alert(obj.RequestAttributes[0].name);
+ 	var method = obj.Method;
+ 	var typeofmethod = method.split(":");
+ 	 document.getElementById('typeofmethod1').innerHTML= typeofmethod[0];
+ 	 //document.getElementById('url').innerHTML = obj.Endpoint;
+ 	 
+ 	 var $tbody = $("#request1 tbody");
+ 	 var tabledata = "";
+      for(var i = 0; i < obj.RequestAttributes.length; i++ ){
+        tabledata = "";
+        tabledata += "<tr>";
+        tabledata += "<td>" + obj.RequestAttributes[i].name + "<br><small> Required field: "+ obj.RequestAttributes[i].compulsory+"</small></td>";
+        tabledata += "<td>" + obj.RequestAttributes[i].dataType + "</td>";
+        tabledata += "<td>" + obj.RequestAttributes[i].description + "</td>";
+        tabledata += "</tr>";
+        $tbody.append(tabledata);
+      }
+      
+      var $tbody1 = $("#response1 tbody");
+      var tabledata1 = "";
+      for(var j = 0; j < obj.ResponseAttributes.length; j++ ){
+          tabledata1 = "";
+          tabledata1 += "<tr>";
+          tabledata1 += "<td>" + obj.ResponseAttributes[j].name +"<br><small> Required field: "+ obj.ResponseAttributes[j].compulsory+"</small></td>";
+          tabledata1 += "<td>" + obj.ResponseAttributes[j].dataType + "</td>";
+          tabledata1 += "<td>" + obj.ResponseAttributes[j].description + "</td>";
+          tabledata1 += "</tr>";
+          $tbody1.append(tabledata1);
+        } 
+ 	
+ 	
+}
 
+</script>
 </html>

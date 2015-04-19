@@ -466,8 +466,8 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 								<li><a href="#">PAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="getSql">SQL</a></li>
-										<li><a href="getNosql">NoSQL</a></li>
-										<li><a href="getStorage">Storage</a></li>
+										<li><a href="nosql">NoSQL</a></li>
+										<li><a href="storageAPI">Storage</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 								<li><a href="#">SAAS</a></li>
 							</ul> <!-- /.nav-second-level --></li>

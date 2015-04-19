@@ -86,4 +86,34 @@ public class APIControllerFacade {
 		 
 		return jsonObject;
 	}
+
+
+	/**
+	 * @throws ParseException 
+	 * @throws IOException 
+	 * 
+	 */
+	public JSONObject getNosqlAPIGetItem() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/NoSQL JSONs/NoSql-get_item.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
+
+
+	/**
+	 * @throws ParseException 
+	 * @throws IOException 
+	 * 
+	 */
+	public JSONObject getNosqlAPIInsertItem() throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/NoSQL JSONs/NoSql-insert_item.json");
+		 Object obj = parser.parse(uploadobjectfile);
+		 JSONObject jsonObject = (JSONObject) obj;
+		
+		 return jsonObject;
+	}
 }
