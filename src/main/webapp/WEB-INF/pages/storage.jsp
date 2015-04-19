@@ -446,7 +446,7 @@ function foo(){
 	var jsonobj = '${StorageAPI}';
 	var obj = jQuery.parseJSON(jsonobj);
 	var details = jsonobj.Details;
-	alert(obj.RequestAttributes[0].name);
+	//alert(obj.RequestAttributes[0].name);
 	var method = obj.Method;
 	var typeofmethod = method.split(":");
 	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
@@ -482,7 +482,7 @@ function foo(){
      var deletebucket = '${deletebucket}';
  	var objdeletebucket = jQuery.parseJSON(deletebucket);
  	//var details = jsonobj.Details;
- 	alert(objdeletebucket.RequestAttributes[0].name);
+ 	//alert(objdeletebucket.RequestAttributes[0].name);
  	var methoddeletebucket = objdeletebucket.Method;
  	var typeofmethoddeletebucket = methoddeletebucket.split(":");
  	 document.getElementById('typeofmethod2').innerHTML= typeofmethoddeletebucket[0];
@@ -519,7 +519,7 @@ function foo(){
       var downloadbucket = '${downloadbucket}';
    	var objdownloadbucket = jQuery.parseJSON(downloadbucket);
    	//var details = jsonobj.Details;
-   	alert(objdownloadbucket.RequestAttributes[0].name);
+   	//alert(objdownloadbucket.RequestAttributes[0].name);
    	var methoddownloadbucket = objdownloadbucket.Method;
    	var typeofmethoddownloadbucket = methoddownloadbucket.split(":");
    	 document.getElementById('typeofmethod3').innerHTML= typeofmethoddownloadbucket[0];
@@ -554,7 +554,7 @@ function foo(){
         var uploadbucket = '${uploadbucket}';
        	var objuploadbucket = jQuery.parseJSON(uploadbucket);
        	//var details = jsonobj.Details;
-       	alert(objuploadbucket.RequestAttributes[0].name);
+       //	alert(objuploadbucket.RequestAttributes[0].name);
        	var methoduploadbucket = objuploadbucket.Method;
        	var typeofmethoddownloadbucket = methoduploadbucket.split(":");
        	 document.getElementById('typeofmethod4').innerHTML= typeofmethoddownloadbucket[0];
