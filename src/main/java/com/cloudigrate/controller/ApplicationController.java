@@ -73,11 +73,11 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping(value="/getViewapp", method = RequestMethod.GET)
-	public ModelAndView getViewapp(){
+	public ModelAndView getViewapp(HttpSession session){
 		
-		String userId = "1"; // This will be taken from Session
+		int userId = (Integer) session.getAttribute("userId"); // This will be taken from Session
 		System.out.println("inside getviewapp");
-		ArrayList<Application> allApplications = applicationFacade.getAllApplications(Integer.parseInt(userId));
+		ArrayList<Application> allApplications = applicationFacade.getAllApplications(userId);
 		return new ModelAndView("viewapp", "allApplications", allApplications);
 	}
 	

@@ -16,11 +16,10 @@ public void createUser(User user){
 
 	userdao.signup(user);
 }
-public boolean loginCheckUser(String fname, String lname){
+public int loginCheckUser(String fname, String lname){
 	
+	return userdao.loginCheck(fname, lname);
 	
-	boolean check = userdao.loginCheck(fname, lname);
-	return check;
 }
 /**
  * @param userid 

@@ -58,8 +58,9 @@ if (document.getElementById('Storage_aws').checked) {
 if (document.getElementById('Storage_google').checked) {
 	storage_value = document.getElementById('Storage_google').value;
 	} 
-
-	$.ajax({
+	alert("You have changed the preference!!");
+  
+	/* $.ajax({
 		url : "adminpreference",
     	type: "POST",
     	data : "instance_value=" + instance_value + "&sql_value=" + sql_value + "&nosql_value=" + nosql_value + "&storage_value=" + storage_value,
@@ -72,10 +73,7 @@ if (document.getElementById('Storage_google').checked) {
     	alert('Could not process request.. ' + errorThrown);
     	//	window.location.href="getHome";
     	}
-	});
-	} else {
-	  alert("you pressesd no");
-	}
+	}); */
 }
 </script>
 </head>

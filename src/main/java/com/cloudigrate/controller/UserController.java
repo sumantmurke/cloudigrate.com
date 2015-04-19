@@ -129,12 +129,14 @@ public ModelAndView createUser(ModelMap model,
 		}
 		else
 		{
-			if(userFacade.loginCheckUser(email, password))
+			int userId = userFacade.loginCheckUser(email, password);
+			if(userId != 0)
 			{
 				System.out.println("inside normal user login");
 
 				session.setAttribute("user", email);
 				session.setAttribute("sessionID", session.getId());
+				session.setAttribute("userId", userId);
 				System.out.println("session details "+session.getId()+" email: "+session.getAttribute("user")+" session id : "+session.getAttribute("sessionID"));
 
 				/*
@@ -149,9 +151,19 @@ public ModelAndView createUser(ModelMap model,
 				String serviceAverageData = dashboardFacade.getServiceAverageDashboardData(user);
 				JSONObject serviceAverageDataObj = new JSONObject(serviceAverageData);
 				int serviceAverage[] = new int[3];
-				serviceAverage[0] = serviceAverageDataObj.getInt("storage");
-				serviceAverage[1] = serviceAverageDataObj.getInt("sql");
-				serviceAverage[2] = serviceAverageDataObj.getInt("nosql");
+				if(!serviceAverageDataObj.toString().equals("{}"))
+				{
+					serviceAverage[0] = serviceAverageDataObj.getInt("storage");
+					serviceAverage[1] = serviceAverageDataObj.getInt("sql");
+					serviceAverage[2] = serviceAverageDataObj.getInt("nosql");
+				}
+				else
+				{
+					serviceAverage[0] = 0;
+					serviceAverage[1] = 0;
+					serviceAverage[2] = 0;
+				}
+				
 				System.out.println("Testing String to JSON: "+serviceAverage[1]);
 				model.setViewName("index");
 				//model.addObject("serviceAverageData", serviceAverageData);
