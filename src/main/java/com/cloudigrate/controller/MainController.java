@@ -79,10 +79,17 @@ public class MainController {
 		String serviceAverageData = dashboardFacade.getServiceAverageDashboardData(user);
 		JSONObject serviceAverageDataObj = new JSONObject(serviceAverageData);
 		int serviceAverage[] = new int[3];
-		serviceAverage[0] = serviceAverageDataObj.getInt("storage");
-		serviceAverage[1] = serviceAverageDataObj.getInt("sql");
-		serviceAverage[2] = serviceAverageDataObj.getInt("nosql");
-		System.out.println("Testing String to JSON: "+serviceAverage[1]);
+		if(!serviceAverageDataObj.toString().equals("{}")){
+			serviceAverage[0] = serviceAverageDataObj.getInt("storage");
+			serviceAverage[1] = serviceAverageDataObj.getInt("sql");
+			serviceAverage[2] = serviceAverageDataObj.getInt("nosql");
+			System.out.println("Testing String to JSON: "+serviceAverage[1]);
+		}
+		else{
+			serviceAverage[0] = 0;
+			serviceAverage[1] = 0;
+			serviceAverage[2] = 0;
+		}
 		ModelAndView model = new ModelAndView();
 		model.setViewName("index");
 		//model.addObject("serviceAverageData", serviceAverageData);
