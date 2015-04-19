@@ -178,9 +178,7 @@
 								<li><a href="#">SAAS</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 						<li><a href="getIndex"><i class="fa fa-dashboard fa-fw"></i>
-								Dashboard</a></li>
-						<li><a href="getAppstatus"><i class="fa fa-table fa-fw"></i>
-								AppStatus</a></li>
+								Dashboard</a></li>						
 						<li><a href="#"><i class="fa fa-sitemap fa-fw"></i> Your
 								application<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
@@ -191,8 +189,7 @@
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="getBillingChart">Billing Analytics</a></li>
-								<li><a href="getMorrischart">Morris.js Charts</a></li>
+								<li><a href="getBillingChart">Billing Analytics</a></li>								
 							</ul> <!-- /.nav-second-level --></li>
 					</ul>
 				</div>
@@ -206,9 +203,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
-						<h2 class="page-header">
-							<strong><em>Storage</em></strong>
-						</h2>
+						<h2 class="page-header" style = "text-align: center"><strong><em>Storage</em></strong></h2>
 					</div>
 	<!-- Start for create bucket -->				
 					<h4>1. Create Bucket:</h4>
@@ -451,7 +446,7 @@ function foo(){
 	var jsonobj = '${StorageAPI}';
 	var obj = jQuery.parseJSON(jsonobj);
 	var details = jsonobj.Details;
-	alert(obj.RequestAttributes[0].name);
+	//alert(obj.RequestAttributes[0].name);
 	var method = obj.Method;
 	var typeofmethod = method.split(":");
 	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
@@ -487,7 +482,7 @@ function foo(){
      var deletebucket = '${deletebucket}';
  	var objdeletebucket = jQuery.parseJSON(deletebucket);
  	//var details = jsonobj.Details;
- 	alert(objdeletebucket.RequestAttributes[0].name);
+ 	//alert(objdeletebucket.RequestAttributes[0].name);
  	var methoddeletebucket = objdeletebucket.Method;
  	var typeofmethoddeletebucket = methoddeletebucket.split(":");
  	 document.getElementById('typeofmethod2').innerHTML= typeofmethoddeletebucket[0];
@@ -524,7 +519,7 @@ function foo(){
       var downloadbucket = '${downloadbucket}';
    	var objdownloadbucket = jQuery.parseJSON(downloadbucket);
    	//var details = jsonobj.Details;
-   	alert(objdownloadbucket.RequestAttributes[0].name);
+   	//alert(objdownloadbucket.RequestAttributes[0].name);
    	var methoddownloadbucket = objdownloadbucket.Method;
    	var typeofmethoddownloadbucket = methoddownloadbucket.split(":");
    	 document.getElementById('typeofmethod3').innerHTML= typeofmethoddownloadbucket[0];
@@ -559,7 +554,7 @@ function foo(){
         var uploadbucket = '${uploadbucket}';
        	var objuploadbucket = jQuery.parseJSON(uploadbucket);
        	//var details = jsonobj.Details;
-       	alert(objuploadbucket.RequestAttributes[0].name);
+       //	alert(objuploadbucket.RequestAttributes[0].name);
        	var methoduploadbucket = objuploadbucket.Method;
        	var typeofmethoddownloadbucket = methoduploadbucket.split(":");
        	 document.getElementById('typeofmethod4').innerHTML= typeofmethoddownloadbucket[0];

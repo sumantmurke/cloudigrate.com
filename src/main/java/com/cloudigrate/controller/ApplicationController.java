@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
 
@@ -36,7 +38,8 @@ public class ApplicationController {
 			@FormParam("name") String name,
 			@FormParam("publisher") String publisher,
 			@FormParam("description") String description,
-			@FormParam("organization") String organization){
+			@FormParam("organization") String organization,
+			HttpSession session, HttpServletRequest request){
 		Application createApplication = new Application();
 		createApplication.setName(name);
 		createApplication.setPublisher(publisher);
@@ -44,7 +47,9 @@ public class ApplicationController {
 		createApplication.setOrganization(organization);
 		createApplication.setUserId(1);
 		System.out.println("inside create Application: Name "+name);
-		Application application = applicationFacade.createApplication(createApplication);
+		session = request.getSession();
+		String email =(String) session.getAttribute("user");
+		Application application = applicationFacade.createApplication(createApplication, email);
 		model.addAttribute("application", application);
 		return new ModelAndView("viewapp");
 	}

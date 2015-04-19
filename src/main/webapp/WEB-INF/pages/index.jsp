@@ -472,9 +472,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 								<li><a href="#">SAAS</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 						<li><a href="getIndex"><i class="fa fa-dashboard fa-fw"></i>
-								Dashboard</a></li>
-						<li><a href="getAppstatus"><i class="fa fa-table fa-fw"></i>
-								AppStatus</a></li>
+								Dashboard</a></li>						
 						<li><a href="#"><i class="fa fa-sitemap fa-fw"></i> Your
 								application<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
@@ -485,8 +483,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="getBillingChart">Billing Analytics</a></li>
-								<li><a href="getMorrischart">Morris.js Charts</a></li>
+								<li><a href="getBillingChart">Billing Analytics</a></li>								
 							</ul> <!-- /.nav-second-level --></li>
 					</ul>
 				</div>
@@ -498,9 +495,7 @@ var chart = AmCharts.makeChart( "piechartdiv", {
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="page-header">
-						<strong><em>Dashboard</em></strong>
-					</h2>
+					<h2 class="page-header" style = "text-align: center"><strong><em>Dashboard</em></strong></h2>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>

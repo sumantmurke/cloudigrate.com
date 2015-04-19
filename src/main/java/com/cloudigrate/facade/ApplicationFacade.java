@@ -2,6 +2,8 @@ package com.cloudigrate.facade;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import com.cloudigrate.dao.SqlConnection;
 import com.cloudigrate.domain.Application;
 import com.cloudigrate.domain.Key;
@@ -16,7 +18,7 @@ public class ApplicationFacade {
 		return sqlConnection.getApplicationById(applicationId);
 	}
 
-	public Application createApplication(Application application) {
+	public Application createApplication(Application application, String email) {
 		// TODO Auto-generated method stub
 		Key newKey = keyFacade.createNewKey(application.getName());
 		application.setKeyValue(newKey.getValue());
@@ -26,6 +28,12 @@ public class ApplicationFacade {
 		
 		System.out.println("Testing key value: "+newKey.getEncodedValue());
 		newApplication.setKeyValue(newKey.getEncodedValue());
+		// email to application creation
+		MessageBody messagebody = new MessageBody();
+		ArrayList<String> message = messagebody.getEmailforAppCreation(application.getName(), newKey.getEncodedValue());
+		SimpleEmailService ses = new SimpleEmailService();
+		System.out.println("email will be sent to" +email);
+		ses.setConnec(email, message.get(0), message.get(1));
 		return newApplication;
 	}
 

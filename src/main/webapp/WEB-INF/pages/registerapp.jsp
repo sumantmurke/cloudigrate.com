@@ -227,9 +227,6 @@ function registerApp(){
                             <a href="getIndex"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="getAppstatus"><i class="fa fa-table fa-fw"></i> AppStatus</a>
-                        </li>
-                        <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Your application<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -248,9 +245,6 @@ function registerApp(){
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="getBillingChart">Billing Analytics</a>
-                                </li>
-                                <li>
-                                    <a href="getMorrischart">Morris.js Charts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
