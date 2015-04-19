@@ -1,5 +1,7 @@
 package com.cloudigrate.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.FormParam;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cloudigrate.domain.User;
+import com.cloudigrate.facade.MessageBody;
+import com.cloudigrate.facade.SimpleEmailService;
 import com.cloudigrate.facade.UserFacade;
 
 @Controller
@@ -38,8 +42,13 @@ public ModelAndView createUser(ModelMap model,
 	user.setPhone(phonenumber);
 	user.setEmail(email);
 	user.setIsAdmin(0);
-	UserFacade userfacade = new UserFacade();
+	UserFacade userfacade = new UserFacade();	
 	userfacade.createUser(user);
+	SimpleEmailService ses = new SimpleEmailService();
+	MessageBody messagebody = new MessageBody();
+	ArrayList<String> message = messagebody.getEmailforSignup(user.getEmail());
+	
+	ses.setConnec(user.getEmail(), message.get(0), message.get(1));
 	return new ModelAndView("index");
 	
 }
