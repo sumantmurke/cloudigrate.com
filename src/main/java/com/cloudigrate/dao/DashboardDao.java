@@ -6,13 +6,14 @@ import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
 import com.cloudigrate.domain.CloudService;
+import com.cloudigrate.domain.HostConfig;
 
 public class DashboardDao {
 
 	public String[] getBillingDashboardData() {
 
 		RestTemplate restTemplate = new RestTemplate();
-		String result = restTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/billing", String.class);
+		String result = restTemplate.getForObject(HostConfig.getHostKey()+"user/dashboard/billing", String.class);
 		System.out.println("result: "+result);
 		//Rough work
 		String res[] = new String[3];
@@ -28,7 +29,7 @@ public class DashboardDao {
 	public String getStoragePerformanceChartData() {
 
 		RestTemplate restTemplate = new RestTemplate();
-		String result = restTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/service/storage", String.class);
+		String result = restTemplate.getForObject(HostConfig.getHostKey()+"user/dashboard/service/storage", String.class);
 		System.out.println("Storage result: "+result);
 		
 		return result;
@@ -37,7 +38,7 @@ public class DashboardDao {
 	public String getServiceAverageDashboardData(String user) {
 
 		RestTemplate serviceAverageRestTemplate = new RestTemplate();
-		String serviceAverageData = serviceAverageRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/serviceaverage?userName="+user, String.class);
+		String serviceAverageData = serviceAverageRestTemplate.getForObject(HostConfig.getHostKey()+"user/dashboard/serviceaverage?userName="+user, String.class);
 		System.out.println("Service Average result: "+serviceAverageData);
 		return serviceAverageData;
 	}
@@ -46,7 +47,7 @@ public class DashboardDao {
 		ArrayList<CloudService> serviceList = new ArrayList<CloudService>();
 		
 		RestTemplate serviceCountRestTemplate = new RestTemplate();
-		String serviceCountData = serviceCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/servicecount?userName="+user, String.class);
+		String serviceCountData = serviceCountRestTemplate.getForObject(HostConfig.getHostKey()+"user/dashboard/servicecount?userName="+user, String.class);
 		System.out.println("Service Count result: "+serviceCountData);
 		
 		JSONObject obj = new JSONObject(serviceCountData);
@@ -62,7 +63,7 @@ public class DashboardDao {
 		ArrayList<CloudService> levelList = new ArrayList<CloudService>();
 		
 		RestTemplate levelCountRestTemplate = new RestTemplate();
-		String levelCountData = levelCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/user/dashboard/levelcount?userName="+user, String.class);
+		String levelCountData = levelCountRestTemplate.getForObject(HostConfig.getHostKey()+"user/dashboard/levelcount?userName="+user, String.class);
 		System.out.println("Level Count result: "+levelCountData);
 		
 		JSONObject obj = new JSONObject(levelCountData);
@@ -76,7 +77,7 @@ public class DashboardDao {
 	public String getAdminServiceAverageDashboardData() {
 
 		RestTemplate serviceAverageRestTemplate = new RestTemplate();
-		String serviceAverageData = serviceAverageRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/serviceaverage", String.class);
+		String serviceAverageData = serviceAverageRestTemplate.getForObject(HostConfig.getHostKey()+"admin/dashboard/serviceaverage", String.class);
 		System.out.println("Service Average result: "+serviceAverageData);
 		return serviceAverageData;
 	}
@@ -85,7 +86,7 @@ public class DashboardDao {
 		ArrayList<CloudService> serviceList = new ArrayList<CloudService>();
 		
 		RestTemplate serviceCountRestTemplate = new RestTemplate();
-		String serviceCountData = serviceCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/servicecount", String.class);
+		String serviceCountData = serviceCountRestTemplate.getForObject(HostConfig.getHostKey()+"admin/dashboard/servicecount", String.class);
 		System.out.println("Service Count result: "+serviceCountData);
 		
 		JSONObject obj = new JSONObject(serviceCountData);
@@ -101,7 +102,7 @@ public class DashboardDao {
 		ArrayList<CloudService> levelList = new ArrayList<CloudService>();
 		
 		RestTemplate levelCountRestTemplate = new RestTemplate();
-		String levelCountData = levelCountRestTemplate.getForObject("http://localhost:8081/cloudigrate-api/admin/dashboard/levelcount", String.class);
+		String levelCountData = levelCountRestTemplate.getForObject(HostConfig.getHostKey()+"admin/dashboard/levelcount", String.class);
 		System.out.println("Level Count result: "+levelCountData);
 		
 		JSONObject obj = new JSONObject(levelCountData);
