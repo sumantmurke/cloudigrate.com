@@ -164,7 +164,7 @@ function registerApp(){
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="userprofilepage"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>                        
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -198,7 +198,7 @@ function registerApp(){
                                     <a href="#">IAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="getInstance">Instance</a>
+                                            <a href="instanceAPI">Instance</a>
                                         </li>
                                     </ul>                                    
                                 </li>
@@ -206,13 +206,13 @@ function registerApp(){
                                     <a href="#">PAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="getSql">SQL</a>
+                                            <a href="sql">SQL</a>
                                         </li>
                                         <li>
-                                            <a href="getNosql">NoSQL</a>
+                                            <a href="nosql">NoSQL</a>
                                         </li>
                                         <li>
-                                            <a href="getStorage">Storage</a>
+                                            <a href="storageAPI">Storage</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->

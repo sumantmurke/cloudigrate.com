@@ -136,7 +136,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="userprofilepage"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>                        
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -169,7 +169,7 @@
                                     <a href="#">IAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="getInstance">Instance</a>
+                                            <a href="instanceAPI">Instance</a>
                                         </li>
                                     </ul>                                    
                                 </li>
@@ -177,13 +177,13 @@
                                     <a href="#">PAAS <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="getSql">SQL</a>
+                                            <a href="sql">SQL</a>
                                         </li>
                                         <li>
-                                            <a href="getNosql">NoSQL</a>
+                                            <a href="nosql">NoSQL</a>
                                         </li>
                                         <li>
-                                            <a href="getStorage">Storage</a>
+                                            <a href="storageAPI">Storage</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
@@ -248,7 +248,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -298,7 +298,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url1"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -377,7 +377,7 @@ function foo(){
 	var method = obj.Method;
 	var typeofmethod = method.split(":");
 	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
-	 //document.getElementById('url').innerHTML = obj.Endpoint;
+	 document.getElementById('url').innerHTML = obj.Endpoint;
 	 
 	 var $tbody = $("#request tbody");
 	 var tabledata = "";
@@ -413,7 +413,7 @@ function foo(){
  	var method = obj.Method;
  	var typeofmethod = method.split(":");
  	 document.getElementById('typeofmethod1').innerHTML= typeofmethod[0];
- 	 //document.getElementById('url').innerHTML = obj.Endpoint;
+ 	 document.getElementById('url1').innerHTML = obj.Endpoint;
  	 
  	 var $tbody = $("#request1 tbody");
  	 var tabledata = "";

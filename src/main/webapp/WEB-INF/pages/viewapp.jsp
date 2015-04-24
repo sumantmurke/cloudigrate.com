@@ -163,7 +163,7 @@ function showkey(keyid, keyValue){
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="userprofilepage"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>                        
                         <li class="divider"></li>
                         <li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -193,13 +193,13 @@ function showkey(keyid, keyValue){
 							<ul class="nav nav-second-level">
 								<li><a href="#">IAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="getInstance">Instance</a></li>
+										<li><a href="instanceAPI">Instance</a></li>
 									</ul></li>
 								<li><a href="#">PAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="getSql">SQL</a></li>
-										<li><a href="getNosql">NoSQL</a></li>
-										<li><a href="getStorage">Storage</a></li>
+										<li><a href="sql">SQL</a></li>
+										<li><a href="nosql">NoSQL</a></li>
+										<li><a href="storageAPI">Storage</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 								<li><a href="#">SAAS</a></li>
 							</ul> <!-- /.nav-second-level --></li>
@@ -271,7 +271,7 @@ function showkey(keyid, keyValue){
 	
 	<footer class="footer" >
       <div class="container" style = "height:40px">
-        <p class="text-muted" style = "margin:10px; text-align: right"> ������������������������������������������������������ 2015 CloudIgrate Inc. All Rights Reserved.</p>
+        <p class="text-muted" style = "margin:10px; text-align: right"> ������������������������������������������������������������������������������������������������������������������������������������������������������������������ 2015 CloudIgrate Inc. All Rights Reserved.</p>
       </div>     
     </footer>
 	<!-- /#wrapper -->

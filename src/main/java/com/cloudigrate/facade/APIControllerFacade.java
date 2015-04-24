@@ -19,12 +19,12 @@ public class APIControllerFacade {
 
 	
 		JSONParser parser = new JSONParser();
-	
+		String jsonPath = "/tmp/jsons/";
 	
 	public  JSONObject getStorageAPICreateBucket() throws  IOException, ParseException {
 		// TODO Auto-generated method stub
 		
-	FileReader createbucketfile = new FileReader("/Users/sumantmurke/Documents/documents-export-2015-04-17/Storage-create_bucket.json");
+	FileReader createbucketfile = new FileReader(jsonPath+"Storage-create_bucket.json");
 	
 	
 	
@@ -44,7 +44,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getStorageAPIDeleteobject() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader deleteobjectfile = new FileReader("/Users/sumantmurke/Documents/documents-export-2015-04-17/Storage-delete_object.json");
+		FileReader deleteobjectfile = new FileReader(jsonPath+"Storage-delete_object.json");
 		 Object obj = parser.parse(deleteobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -61,7 +61,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getStorageAPIDownloadobject() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader downloadobjectfile = new FileReader("/Users/sumantmurke/Documents/documents-export-2015-04-17/Storage-download_object.json");
+		FileReader downloadobjectfile = new FileReader(jsonPath+"Storage-download_object.json");
 		 Object obj = parser.parse(downloadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -78,7 +78,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getStorageAPIUploadobject() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/documents-export-2015-04-17/Storage-upload_object.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"Storage-upload_object.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -95,7 +95,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getNosqlAPIGetItem() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/NoSQL JSONs/NoSql-get_item.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"NoSql-get_item.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -110,7 +110,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getNosqlAPIInsertItem() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/NoSQL JSONs/NoSql-insert_item.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"NoSql-insert_item.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -125,7 +125,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getSqlAPIGetPassword() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL-GetPassword.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"SQL-GetPassword.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -141,7 +141,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getSqlAPIGetUsername() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL-GetUsername.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"SQL-GetUsername.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -155,7 +155,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getSqlAPIGetConnectionString() throws IOException, ParseException{
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/SQL-JSONs/SQL_GetConnectionString.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"SQL_GetConnectionString.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -170,7 +170,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getInstanceCreateAPI() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/create_vm.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"create_vm.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -183,7 +183,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getInstanceStopAPI() throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/stop_vm.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"stop_vm.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		
@@ -196,7 +196,7 @@ public class APIControllerFacade {
 	 */
 	public JSONObject getInstanceTerminate()  throws IOException, ParseException{
 		// TODO Auto-generated method stub
-		FileReader uploadobjectfile = new FileReader("/Users/sumantmurke/Documents/Instance_JSON/terminate.json");
+		FileReader uploadobjectfile = new FileReader(jsonPath+"terminate.json");
 		 Object obj = parser.parse(uploadobjectfile);
 		 JSONObject jsonObject = (JSONObject) obj;
 		

@@ -139,7 +139,7 @@
 						<i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="getUserprofile"><i class="fa fa-user fa-fw"></i>
+						<li><a href="userprofilepage"><i class="fa fa-user fa-fw"></i>
 								User Profile</a></li>
 						<li class="divider"></li>
 						<li><a href="getHome"><i class="fa fa-sign-out fa-fw"></i>
@@ -167,13 +167,13 @@
 							<ul class="nav nav-second-level">
 								<li><a href="#">IAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="getInstance">Instance</a></li>
+										<li><a href="instanceAPI">Instance</a></li>
 									</ul></li>
 								<li><a href="#">PAAS <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="getSql">SQL</a></li>
-										<li><a href="getNosql">NoSQL</a></li>
-										<li><a href="getStorage">Storage</a></li>
+										<li><a href="sql">SQL</a></li>
+										<li><a href="nosql">NoSQL</a></li>
+										<li><a href="storageAPI">Storage</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 								<li><a href="#">SAAS</a></li>
 							</ul> <!-- /.nav-second-level --></li>
@@ -220,7 +220,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -269,7 +269,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url2"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -318,7 +318,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url3"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -367,7 +367,7 @@
 			<div class="row" >
 			<h5 style="margin: 15px">Endpoint:</h5>
 				<code id="url4"
-					style="background-color: #1F2028; color: white ; margin: 15px">https://api.cloudigrate.net/v2/batch/create_flow?api_key=your_api_key</code>
+					style="background-color: #1F2028; color: white ; margin: 15px"></code>
 			</div>
 		
 			<br>
@@ -450,7 +450,7 @@ function foo(){
 	var method = obj.Method;
 	var typeofmethod = method.split(":");
 	 document.getElementById('typeofmethod').innerHTML= typeofmethod[0];
-	 //document.getElementById('url').innerHTML = obj.Endpoint;
+	 document.getElementById('url').innerHTML = obj.Endpoint;
 	 
 	 var $tbody = $("#request tbody");
 	 var tabledata = "";
@@ -486,7 +486,7 @@ function foo(){
  	var methoddeletebucket = objdeletebucket.Method;
  	var typeofmethoddeletebucket = methoddeletebucket.split(":");
  	 document.getElementById('typeofmethod2').innerHTML= typeofmethoddeletebucket[0];
- 	 //document.getElementById('url').innerHTML = obj.Endpoint;
+ 	 document.getElementById('url2').innerHTML = obj.Endpoint;
  	 
  	 var $tbody = $("#request2 tbody");
  	 var tabledata = "";
@@ -523,7 +523,7 @@ function foo(){
    	var methoddownloadbucket = objdownloadbucket.Method;
    	var typeofmethoddownloadbucket = methoddownloadbucket.split(":");
    	 document.getElementById('typeofmethod3').innerHTML= typeofmethoddownloadbucket[0];
-   	 //document.getElementById('url').innerHTML = obj.Endpoint;
+   	 document.getElementById('url3').innerHTML = obj.Endpoint;
    	 
    	 var $tbody = $("#request3 tbody");
    	 var tabledata = "";
@@ -558,7 +558,7 @@ function foo(){
        	var methoduploadbucket = objuploadbucket.Method;
        	var typeofmethoddownloadbucket = methoduploadbucket.split(":");
        	 document.getElementById('typeofmethod4').innerHTML= typeofmethoddownloadbucket[0];
-       	 //document.getElementById('url').innerHTML = obj.Endpoint;
+       	 document.getElementById('url4').innerHTML = obj.Endpoint;
        	 
        	 var $tbody = $("#request4 tbody");
        	 var tabledata = "";
